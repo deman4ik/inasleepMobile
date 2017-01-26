@@ -33,14 +33,6 @@ export const onLogin = () => {
         const { nameOrEmail, password } = getLoginPage(getState());
         let nameOrEmailValid = checkNameOrEmail(nameOrEmail);
         let passwordValid = checkPassword(password);
-        let nameOrEmailError = '';
-        if (!nameOrEmailValid) {
-            nameOrEmailError = 'Your username must be more then 4 symbols';
-        }
-        let passwordError = ''
-        if (!passwordValid) {
-            passwordError = 'Your password must be more then 6 symbols';
-        }
 
         let canLogin = nameOrEmailValid && passwordValid;
 
@@ -53,13 +45,13 @@ export const onLogin = () => {
           Actions.flowPage({type: 'replace'});
         }
         else{
+            setTimeout(() =>{
         dispatch({
             type: actionTypes.AUTH_LOGIN_INVALID,
             nameOrEmailValid,
-            passwordValid,
-            nameOrEmailError,
-            passwordError,
+            passwordValid
         })
+      },2000)
       }
 
     }

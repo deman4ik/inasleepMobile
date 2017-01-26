@@ -3,7 +3,7 @@
 import LoginPage from './LoginPage'
 import {connect} from 'react-redux'
 import * as actions from './actions' // mapDispatchToProps
-import { navToRegisterPage } from '../../navActions'
+import { navToRegisterPage, navToRemindPassPage } from '../../navActions'
 import {getNav, getLoginPage} from '../../reducers/rootReducer'
 
 const mapStateToProps = (state) => ({
@@ -11,4 +11,4 @@ const mapStateToProps = (state) => ({
   ...getLoginPage(state),
 })
 
-export default connect(mapStateToProps, {...actions,navToRegisterPage})(LoginPage)
+export default connect(mapStateToProps, {...actions,navToRegisterPage,navToRemindPassPage})(LoginPage)

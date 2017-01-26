@@ -1,49 +1,38 @@
 // @flow
 import React, {Component} from 'react'
 import {
-  Text,
   View,
-  Button,
-  TextInput,
-  ActivityIndicator
+  StatusBar,
+  KeyboardAvoidingView,
 } from 'react-native'
+import {
+  MKProgress
+} from 'react-native-material-kit';
+import Brand from '../Brand'
+import TextField from '../TextField'
+import RaisedButton from '../RaisedButton'
+import FlatButton from '../FlatButton'
+import ProgressButton from '../ProgressButton'
+import colors from '../../styles/colors'
+import appStyles from '../../styles'
 
 export default class LoginPage extends Component {
   render() {
-    const { isLoggingIn, nameOrEmailError, passwordError, onSetNameOrEmail, onSetPassword, onLogin, navToRegisterPage} = this.props;
+    const { isLoggingIn, onSetNameOrEmail, onSetPassword, onLogin, navToRegisterPage, navToRemindPassPage} = this.props;
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>
-          Login Screen
-        </Text>
-
-        <TextInput
-        style={{height: 40}}
-         placeholder="Email or Username"
-         onChangeText={(text) => onSetNameOrEmail(text)}
-       />
-
-       <Text style={{color: 'red'}}>
-        {nameOrEmailError}
-         </Text>
-
-         <TextInput
-         style={{height: 40}}
-         placeholder="Password"
-         onChangeText={(text) => onSetPassword(text)}
-         />
-         <Text style={{color: 'red'}}>
-          {passwordError}
-           </Text>
-
-        <Button onPress={onLogin} title='Login' />
-        <ActivityIndicator
-        animating={isLoggingIn}
-        size="large"
-      />
-        <Button onPress={navToRegisterPage} title='No Account? Register!'/>
-
-      </View>
+      <KeyboardAvoidingView behavior='padding' style={{flex:1, justifyContent:'center'}} >
+        <StatusBar barStyle="dark-content" />
+        <Brand />
+        <View style={{ justifyContent: 'flex-start'}} >
+          <View style={{ justifyContent: 'flex-start'}}>
+            <TextField placeholder='Username or Email' onChangeText={(text) => onSetNameOrEmail(text)}/>
+            <TextField password={true} placeholder="Password" onChangeText={(text) => onSetPassword(text)} />
+            <FlatButton enabled={!isLoggingIn} onPress={navToRemindPassPage} textStyle={{color: 'gray'}} title='Forgot password'/>
+            <ProgressButton isProgress={isLoggingIn} btnProps={{onPress: onLogin, title:'Login', backgroundColor: colors.darkBackground, textStyle: {color: 'white'}}}/>
+            <FlatButton enabled={!isLoggingIn} onPress={navToRegisterPage} textStyle={{color: colors.darkBackground}} title='No Account? Register!'/>
+          </View>
+        </View>
+      </KeyboardAvoidingView>
     )
   }
 }

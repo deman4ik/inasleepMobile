@@ -5,10 +5,8 @@ import * as actionTypes from '../actionTypes'
 const DEFAULT_STATE = {
     nameOrEmail: '',
     nameOrEmailValid: null,
-    nameOrEmailError: '',
     password: '',
     passwordValid: null,
-    passwordError: '',
     isLoggingIn: false
 }
 export default function(state = DEFAULT_STATE, action) {
@@ -23,22 +21,18 @@ export default function(state = DEFAULT_STATE, action) {
             }
         case actionTypes.AUTH_LOGIN:
             return { ...state,
-                isLoggingIn: action.isLoggingIn
+                isLoggingIn: true
             }
         case actionTypes.AUTH_AUTHENTICATED:
             return { ...state,
                 nameOrEmailValid: true,
-                nameOrEmailError: '',
                 passwordValid: true,
-                passwordError: '',
                 isLoggingIn: false
             }
         case actionTypes.AUTH_LOGIN_INVALID:
             return { ...state,
                 nameOrEmailValid: action.nameOrEmailValid,
-                nameOrEmailError: action.nameOrEmailError,
                 passwordValid: action.passwordValid,
-                passwordError: action.passwordError,
                 isLoggingIn: false
             }
         default:

@@ -22,6 +22,15 @@ export const navToRegisterPage = () => {
     }
 }
 
+export const navToRemindPassPage = () => {
+    Actions.registerPage({
+        type: 'replace'
+    })
+    return {
+        type: actionTypes.NAV_TO_REMIND_PASS_PAGE
+    }
+}
+
 export const navToFlowPage = () => {
     Actions.flowPage({
         type: 'replace'
