@@ -35,6 +35,7 @@
 		D487BF1AF92C4A4D859D30E4 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7AC0D9FCE7448918EA60F04 /* MaterialIcons.ttf */; };
 		4CBC32312E784FE18BD2D20A /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A79F85B6893A4220B93EE2A4 /* MaterialCommunityIcons.ttf */; };
 		9A019620681C40BF813D9673 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB810A6F83944BE196354ACA /* libRCTMaterialKit.a */; };
+		F8757C54BB094939B1DA7B53 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E54B4EFEE3443618E9106B6 /* libBVLinearGradient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +260,8 @@
 		A79F85B6893A4220B93EE2A4 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6C042BA88BA84550934F394F /* RCTMaterialKit.xcodeproj */ = {isa = PBXFileReference; name = "RCTMaterialKit.xcodeproj"; path = "../node_modules/react-native-material-kit/iOS/RCTMaterialKit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		EB810A6F83944BE196354ACA /* libRCTMaterialKit.a */ = {isa = PBXFileReference; name = "libRCTMaterialKit.a"; path = "libRCTMaterialKit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		4E0858A2CF794D89B9AD91B7 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4E54B4EFEE3443618E9106B6 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +290,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				6D5642D827DA41E8B863B18E /* libRNVectorIcons.a in Frameworks */,
 				9A019620681C40BF813D9673 /* libRCTMaterialKit.a in Frameworks */,
+				F8757C54BB094939B1DA7B53 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +437,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				DE9579BC5BA047CAAD0C09EF /* RNVectorIcons.xcodeproj */,
 				6C042BA88BA84550934F394F /* RCTMaterialKit.xcodeproj */,
+				4E0858A2CF794D89B9AD91B7 /* BVLinearGradient.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -888,6 +893,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inasleepMobile.app/inasleepMobile";
@@ -905,6 +911,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

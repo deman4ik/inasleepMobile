@@ -26,7 +26,7 @@ export default class ProgressButton extends Component{
     let element = null;
     if(isProgress)
     {
-      element = <MKProgress.Indeterminate style={{marginLeft:10, marginRight: 10}} progressColor = {colors.darkBackground}  />
+      element = <MKProgress.Indeterminate style={{marginLeft:10, marginRight: 10, backgroundColor:colors.commonDetailColor}} progressColor = {colors.commonTextColor}  />
     }
     else
     {
@@ -40,7 +40,7 @@ export default class ProgressButton extends Component{
     }
     console.log(element)
     return(
-      <View style={{height: 20}}>
+      <View style={{height:50,marginVertical: 5, justifyContent:'center'}}>
         {element}
         </View>
     );

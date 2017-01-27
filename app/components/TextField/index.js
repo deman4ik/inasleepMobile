@@ -3,16 +3,11 @@ import {
  MKTextField
 } from 'react-native-material-kit';
 import colors from '../../styles/colors';
+import appStyles from '../../styles'
 
 const MyMKTextField = MKTextField.textfieldWithFloatingLabel()
-.withStyle({
-  height: 48,  // have to do it on iOS
-  marginTop: 10,
-  marginLeft: 10,
-  marginRight: 10,
-})
-.withTintColor(colors.darkBackground)
-.withTextInputStyle({flex: 1, color: colors.darkBackground})
+.withStyle(appStyles.textField)
+.withTextInputStyle({flex: 1, color: colors.commonTextColor})
 /*.withFloatingLabelFont({
     fontSize: 30,
     fontStyle: 'italic',
@@ -24,7 +19,7 @@ const MyMKTextField = MKTextField.textfieldWithFloatingLabel()
 const TextField = (props) => {
 
       return (
-        <MyMKTextField {...props}/>
+        <MyMKTextField highlightColor={colors.commonTextColor} tintColor={colors.commonDetailColor} placeholderTextColor={colors.commonDetailColor} {...props}/>
       )
 
 }
