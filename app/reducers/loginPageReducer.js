@@ -7,6 +7,7 @@ const DEFAULT_STATE = {
     nameOrEmailValid: null,
     password: '',
     passwordValid: null,
+    error: '',
     isLoggingIn: false
 }
 export default function(state = DEFAULT_STATE, action) {
@@ -21,19 +22,22 @@ export default function(state = DEFAULT_STATE, action) {
             }
         case actionTypes.AUTH_LOGIN:
             return { ...state,
-                isLoggingIn: true
+                isLoggingIn: true,
+                error: ''
             }
         case actionTypes.AUTH_AUTHENTICATED:
             return { ...state,
                 nameOrEmailValid: true,
                 passwordValid: true,
-                isLoggingIn: false
+                isLoggingIn: false,
+                error: ''
             }
         case actionTypes.AUTH_LOGIN_INVALID:
             return { ...state,
                 nameOrEmailValid: action.nameOrEmailValid,
                 passwordValid: action.passwordValid,
-                isLoggingIn: false
+                isLoggingIn: false,
+                error: action.error
             }
         default:
             return state

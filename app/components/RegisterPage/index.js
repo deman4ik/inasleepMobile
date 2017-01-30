@@ -4,10 +4,9 @@ import RegisterPage from './RegisterPage'
 import {connect} from 'react-redux'
 import * as actions from './actions' // mapDispatchToProps
 import { navToLoginPage} from '../../navActions'
-import {getNav, getRegisterPage} from '../../reducers/rootReducer'
+import {getRegisterPage} from '../../reducers/rootReducer'
 
 const mapStateToProps = (state) => ({
-  ...getNav(state),
   ...getRegisterPage(state),
 })
 

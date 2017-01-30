@@ -7,10 +7,10 @@ import {
 
 export default class SplashScreen extends Component {
   componentDidMount() {
-      const { isAuthenticated,navToLoginPage,navToFlowPage } = this.props;
+      const { isAuthenticated,navToLoginPage,navToMainPage } = this.props;
       if (isAuthenticated)
       {
-        navToFlowPage();
+        navToMainPage();
       }
       else {
         navToLoginPage();

@@ -19,11 +19,11 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export default class LoginPage extends Component {
   render() {
-    const { isLoggingIn, onSetNameOrEmail, onSetPassword, onLogin, navToRegisterPage, navToRemindPassPage} = this.props;
+    const { isLoggingIn, onSetNameOrEmail, onSetPassword, onLogin,  navToRegisterPage, navToRemindPassPage} = this.props;
     return (
       <LinearGradient colors={[colors.gradientColorOne,colors.gradientColorTwo]} style={{flex:1, justifyContent:'center'}} >
         <KeyboardAvoidingView behavior='padding' style={{flex:1, justifyContent:'center'}} >
-          <StatusBar barStyle="dark-content" />
+          <StatusBar barStyle="light-content" />
           <Brand />
           <View style={{ justifyContent: 'flex-start'}} >
             <View style={{ justifyContent: 'flex-start', }}>

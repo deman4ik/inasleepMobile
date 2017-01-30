@@ -4,19 +4,24 @@ import {
     Actions
 } from 'react-native-router-flux'
 
-export const navToLoginPage = () => {
-    Actions.loginPage({
+export const navToMainPage = () => {
+    Actions.drawer({
         type: 'replace'
     })
+    return {
+        type: actionTypes.NAV_TO_MAIN_PAGE
+    }
+}
+
+export const navToLoginPage = () => {
+    Actions.loginPage({type:'focus'})
     return {
         type: actionTypes.NAV_TO_LOGIN_PAGE
     }
 }
 
 export const navToRegisterPage = () => {
-    Actions.registerPage({
-        type: 'replace'
-    })
+    Actions.registerPage({type:'focus'})
     return {
         type: actionTypes.NAV_TO_REGISTER_PAGE
     }
