@@ -8,7 +8,7 @@ import * as actions from './actions' // mapDispatchToProps
 import {
     navToRegisterPage,
     navToRemindPassPage
-} from '../../navActions'
+} from '../../navigation/navActions'
 import {
     getLoginPage,
     getNav

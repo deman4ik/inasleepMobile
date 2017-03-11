@@ -13,7 +13,7 @@ import {
 } from 'react-redux'
 import configureStore from './store/configureStore'
 
-import AppNavigator from './navigator'
+import AppNavigator from './navigation/navigator'
 
 
 

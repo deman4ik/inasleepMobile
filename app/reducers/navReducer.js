@@ -2,7 +2,7 @@
 import {
     NavigationActions
 } from 'react-navigation'
-import AppNavigator from '../navigator'
+import AppNavigator from '../navigation/navigator'
 import {
     NAV_TO_MAIN_PAGE
 } from '../actionTypes'

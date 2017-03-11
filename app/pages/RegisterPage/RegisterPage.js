@@ -8,11 +8,11 @@ import {
 import {
   MKProgress
 } from 'react-native-material-kit';
-import Brand from '../Brand'
-import TextField from '../TextField'
-import RaisedButton from '../RaisedButton'
-import FlatButton from '../FlatButton'
-import ProgressButton from '../ProgressButton'
+import Brand from '../../components/Brand'
+import TextField from '../../components/TextField'
+import RaisedButton from '../../components/RaisedButton'
+import FlatButton from '../../components/FlatButton'
+import ProgressButton from '../../components/ProgressButton'
 import colors from '../../styles/colors'
 import appStyles from '../../styles'
 import LinearGradient from 'react-native-linear-gradient';

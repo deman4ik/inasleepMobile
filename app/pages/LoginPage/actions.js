@@ -5,7 +5,7 @@ import {
 } from '../../reducers/rootReducer'
 import {
     navToMainPage
-} from '../../navActions'
+} from '../../navigation/navActions'
 import {
     checkStringIsNotNull
 } from '../../helpers/checks'

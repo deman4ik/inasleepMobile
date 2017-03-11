@@ -5,7 +5,7 @@ import {
   View,
   Button,
 } from 'react-native'
-import FlatButton from '../FlatButton'
+import FlatButton from '../../components/FlatButton'
 
 export default class FlowPage extends Component {
   render() {

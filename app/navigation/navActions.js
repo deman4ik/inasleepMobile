@@ -2,7 +2,7 @@
 import {
     NavigationActions
 } from 'react-navigation'
-import * as actionTypes from './actionTypes'
+import * as actionTypes from '../actionTypes'
 
 /* TODO: Delete Login/Register Page from Navigation state
 https://github.com/react-community/react-navigation/issues/395

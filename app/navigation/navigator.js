@@ -1,14 +1,14 @@
 import {
   StackNavigator, TabNavigator
 } from 'react-navigation';
-import LoginPage from './components/LoginPage'
-import RegisterPage from './components/RegisterPage'
-import FlowPage from './components/FlowPage'
-import DreamPage from './components/DreamPage'
-import SearchPage from './components/SearchPage'
-import NotificationsPage from './components/NotificationsPage'
-import ProfilePage from './components/ProfilePage'
-import SettingsPage from './components/SettingsPage'
+import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
+import FlowPage from '../pages/FlowPage'
+import DreamPage from '../pages/DreamPage'
+import SearchPage from '../pages/SearchPage'
+import NotificationsPage from '../pages/NotificationsPage'
+import ProfilePage from '../pages/ProfilePage'
+import SettingsPage from '../pages/SettingsPage'
 
 
 const AuthNavigator = StackNavigator({

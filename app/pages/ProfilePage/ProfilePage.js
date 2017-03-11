@@ -4,7 +4,7 @@ import {
   Text,
   View,
 } from 'react-native'
-import FlatButton from '../FlatButton'
+import FlatButton from '../../components/FlatButton'
 
 export default class ProfilePage extends Component {
   render() {
