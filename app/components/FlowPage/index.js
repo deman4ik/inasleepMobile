@@ -1,12 +1,21 @@
 // @flow
 // Container for FlowPage Component
 import FlowPage from './FlowPage'
-import {connect} from 'react-redux'
+import {
+    connect
+} from 'react-redux'
 import * as actions from './actions' // mapDispatchToProps
-import {getNav} from '../../reducers/rootReducer'
+import {
+    navToDreamPage
+} from '../../navActions'
+import {
+    getNav
+} from '../../reducers/rootReducer'
 
 const mapStateToProps = (state) => ({
-  ...getNav(state),
+    ...getNav(state),
 })
 
-export default connect(mapStateToProps, actions)(FlowPage)
+export default connect(mapStateToProps, { ...actions,
+    navToDreamPage
+})(FlowPage)

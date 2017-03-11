@@ -51,8 +51,9 @@ export const onLogin = () => {
                 dispatch({
                     type: actionTypes.AUTH_AUTHENTICATED
                 })
-                dispatch(navToMainPage);
-            }, 1000)
+                dispatch(navToMainPage());
+
+            }, 500)
 
         } else {
             let error = 'Username or Password not specified.'
@@ -67,7 +68,7 @@ export const onLogin = () => {
                     'Can\'t login',
                     error,
                 );
-            }, 2000)
+            }, 1000)
         }
 
     }

@@ -18,6 +18,11 @@ import appStyles from '../../styles'
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class LoginPage extends Component {
+  static navigationOptions = {
+    header: {
+       visible: false,
+     },
+  };
   render() {
     const { isLoggingIn, onSetNameOrEmail, onSetPassword, onLogin,  navToRegisterPage, navToRemindPassPage} = this.props;
     return (

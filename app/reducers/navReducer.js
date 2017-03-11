@@ -1,23 +1,21 @@
 // @flow weak
-import { ActionConst } from 'react-native-router-flux'
+import {
+    NavigationActions
+} from 'react-navigation'
+import AppNavigator from '../navigator'
+import {
+    NAV_TO_MAIN_PAGE
+} from '../actionTypes'
 
-const DEFAULT_STATE = {scene: {}}
 
-export default function reducer(state = DEFAULT_STATE, action = {}) {
-  switch(action.type) {
-    // focus action is dispatched when a new screen comes into focus
-    case ActionConst.FOCUS:
-      return {
-        ...state,
-        scene: action.scene,
-      }
-
-    default:
-      return state
-  }
+export default function reducer(state, action) {
+    switch (action.type) {
+        /*  case NAV_TO_REGISTER_PAGE:
+      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Register' }), state);
+*/
+        default: return AppNavigator.router.getStateForAction(action, state);
+    }
 }
 
-// Selectors (mapStateToProps)
-export const getNav = ({scene}) => ({
-  scene
-})
+
+export const getNav = (state) => (state)
