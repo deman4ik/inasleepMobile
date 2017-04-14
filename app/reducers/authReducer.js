@@ -1,23 +1,23 @@
 // @flow weak
-import * as actionTypes from '../actionTypes'
+import * as actionTypes from "../actionTypes";
 
 // Reducer
 const DEFAULT_STATE = {
   isAuthenticated: false,
-  name: '',
-  email: '',
-  password: '',
-      }
+  name: "",
+  email: "",
+  password: ""
+};
 export default function(state = DEFAULT_STATE, action) {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.AUTH_AUTHENTICATED:
-      return {...state, isAuthenticated: true}
+      return { ...state, isAuthenticated: true };
     default:
-      return state
+      return state;
   }
 }
 
 // Selectors (mapStateToProps)
-export const getAuthState = ({auth}) => ({
+export const getAuthState = ({ auth }) => ({
   auth
-})
+});

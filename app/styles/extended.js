@@ -1,8 +1,7 @@
 const styles = {
-  tabBar:
-  {
+  tabBar: {
     iconSize: 24
   }
-}
+};
 
 export default styles;
