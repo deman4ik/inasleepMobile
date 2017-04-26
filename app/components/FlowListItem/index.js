@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     // paddingRight: 16
   }
 });
-
+//   style={{ backgroundColor: "rgba(0,0,0,.35)" }}
 const FlowListItem = props => {
   const { data } = props;
   return (
@@ -49,7 +49,8 @@ const FlowListItem = props => {
         <Image style={styles.media} source={{ uri: data.image }}>
 
           <CardMediaOverlay
-            style={{ backgroundColor: "rgba(0,0,0,.35)" }}
+             style={{ backgroundColor: "transparent"  }}
+             backgroundImageColor={data.imageColor}
             leftElement={
               <FitImage source={{ uri: data.avatar }} style={styles.fitImage} />
             }

@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from "react";
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from "react-native";
 import { RippleFeedback, COLOR } from "react-native-material-ui";
+import LinearGradient from "react-native-linear-gradient";
 
 const propTypes = {
   onPress: PropTypes.func,
@@ -8,6 +9,7 @@ const propTypes = {
   numberOfLines: React.PropTypes.oneOf([1, 2, 3, "dynamic"]),
   style: PropTypes.object,
   backgroundColor: PropTypes.string,
+  backgroundImageColor: PropTypes.string,
   // left side
   leftElement: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   onLeftElementPress: PropTypes.func,
@@ -300,7 +302,7 @@ class CardMediaOverlay extends PureComponent {
     </View>
   );
   render() {
-    const { onPress } = this.props;
+    const { onPress, backgroundImageColor } = this.props;
 
     const styles = getStyles(this.props, this.context, this.state);
 
@@ -316,11 +318,10 @@ class CardMediaOverlay extends PureComponent {
     }
 
     return (
-      <View>
-        <View style={styles.container}>
+        <LinearGradient colors={['transparent', backgroundImageColor]} style={styles.container}>
           {content}
-        </View>
-      </View>
+        </LinearGradient>
+
     );
   }
 }
