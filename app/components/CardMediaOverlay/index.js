@@ -244,7 +244,8 @@ class CardMediaOverlay extends PureComponent {
             <View>
               <Text
                 numberOfLines={secondLineNumber}
-                style={[styles.secondaryText, { color: COLOR.grey400 }]}
+                style={[styles.secondaryText, { color: COLOR.grey400;
+ }]}
               >
                 {secondaryText}
               </Text>
