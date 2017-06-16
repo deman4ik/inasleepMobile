@@ -31,7 +31,7 @@ export default class LoginPage extends Component {
 				colors={[colors.gradientColorOne, colors.gradientColorTwo]}
 				style={{ flex: 1, justifyContent: "center" }}
 			>
-				<KeyboardAvoidingView behavior="padding" style={{ flex: 1, justifyContent: "center" }}>
+				<KeyboardAvoidingView behavior="padding">
 					<StatusBar barStyle="light-content" />
 					<Brand />
 					<View style={{ justifyContent: "flex-start" }}>

@@ -23,24 +23,23 @@ const AuthNavigator = StackNavigator(
 	}
 );
 
-const FlowNavigator = StackNavigator({
-	Flow: { screen: FlowPage },
-	Profile: { screen: ProfilePage },
-	Dream: { screen: DreamPage }
-});
+const FlowNavigator = StackNavigator(
+	{
+		Flow: { screen: FlowPage },
+		Profile: { screen: ProfilePage }
+	},
+	{ mode: "modal" }
+);
 const SearchNavigator = StackNavigator({
 	Search: { screen: SearchPage },
-	Profile: { screen: ProfilePage },
-	Dream: { screen: DreamPage }
+	Profile: { screen: ProfilePage }
 });
 const NotificationsNavigator = StackNavigator({
 	Notifications: { screen: NotificationsPage },
-	Profile: { screen: ProfilePage },
-	Dream: { screen: DreamPage }
+	Profile: { screen: ProfilePage }
 });
 const ProfileNavigator = StackNavigator({
 	Profile: { screen: ProfilePage },
-	Dream: { screen: DreamPage },
 	Settings: { screen: SettingsPage }
 });
 const iconSize = styles.tabBar.iconSize;
@@ -95,11 +94,12 @@ const MainNavigator = TabNavigator(
 const AppNavigator = StackNavigator(
 	{
 		Auth: { screen: AuthNavigator },
-		Main: { screen: MainNavigator }
+		Main: { screen: MainNavigator },
+		Dream: { screen: DreamPage }
 	},
 	{
 		headerMode: "none",
-		initialRouteName: "Main"
+		initialRouteName: "Auth"
 	}
 );
 
