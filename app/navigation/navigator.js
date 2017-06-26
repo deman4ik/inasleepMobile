@@ -52,10 +52,10 @@ const MainNavigator = TabNavigator(
 	},
 	{
 		headerMode: "screen",
-		tabBarComponent: NavigationComponent,
+		//	tabBarComponent: NavigationComponent,
 		tabBarPosition: "bottom",
 		tabBarOptions: {
-			bottomNavigationOptions: {
+			/*	bottomNavigationOptions: {
 				labelColor: "white",
 				rippleColor: "white",
 				backgroundColor: colors.blueGray,
@@ -86,7 +86,7 @@ const MainNavigator = TabNavigator(
 						//   barBackgroundColor: colors.gradientColorTwo
 					}
 				}
-			}
+			}*/
 		}
 	}
 );
@@ -99,7 +99,7 @@ const AppNavigator = StackNavigator(
 	},
 	{
 		headerMode: "none",
-		initialRouteName: "Auth"
+		initialRouteName: "Main"
 	}
 );
 
