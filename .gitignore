@@ -1,3 +1,6 @@
+.expo/
+
+
 # OSX
 #
 .DS_Store
@@ -33,7 +36,7 @@ local.properties
 # node.js
 #
 node_modules/
-npm-debug.log
+npm-debug.*
 yarn-error.log
 
 # BUCK

@@ -8,22 +8,19 @@ import registerPage, * as fromRegisterPage from "./registerPageReducer";
 import flowPage, * as fromFlowPage from "./flowPageReducer";
 
 export default combineReducers({
-  nav,
-  auth,
-  loginPage,
-  registerPage,
-  flowPage
+	nav,
+	auth,
+	loginPage,
+	registerPage,
+	flowPage
 });
 
 export const getNav = state => fromNav.getNav(state.nav);
 
 export const getAuth = state => fromAuth.getAuthState(state.auth);
 
-export const getLoginPage = state =>
-  fromLoginPage.getLoginPageState(state.loginPage);
+export const getLoginPage = state => fromLoginPage.getLoginPageState(state.loginPage);
 
-export const getRegisterPage = state =>
-  fromRegisterPage.getRegisterPageState(state.registerPage);
+export const getRegisterPage = state => fromRegisterPage.getRegisterPageState(state.registerPage);
 
-export const getFlowPage = state =>
-  fromFlowPage.getFlowPageState(state.flowPage);
+export const getFlowPage = state => fromFlowPage.getFlowPageState(state.flowPage);

@@ -1,15 +1,9 @@
 // @flow
 import React, { Component } from "react";
-import { View, StatusBar, KeyboardAvoidingView } from "react-native";
-import { MKProgress } from "react-native-material-kit";
-import Brand from "../../components/Brand";
-import TextField from "../../components/TextField";
-import RaisedButton from "../../components/RaisedButton";
-import FlatButton from "../../components/FlatButton";
-import ProgressButton from "../../components/ProgressButton";
+import { View, TextInput, Button, StatusBar, KeyboardAvoidingView } from "react-native";
+import * as Expo from "expo";
 import colors from "../../styles/colors";
 import appStyles from "../../styles";
-import LinearGradient from "react-native-linear-gradient";
 
 export default class LoginPage extends Component {
 	static navigationOptions = {
@@ -27,46 +21,33 @@ export default class LoginPage extends Component {
 			navToRemindPassPage
 		} = this.props;
 		return (
-			<LinearGradient
+			<Expo.LinearGradient
 				colors={[colors.gradientColorOne, colors.gradientColorTwo]}
 				style={{ flex: 1, justifyContent: "center" }}
 			>
 				<KeyboardAvoidingView behavior="padding">
 					<StatusBar barStyle="light-content" />
-					<Brand />
+
 					<View style={{ justifyContent: "flex-start" }}>
-						<View style={{ justifyContent: "flex-start" }}>
-							<TextField placeholder="Username or Email" onChangeText={text => onSetNameOrEmail(text)} />
-							<TextField
-								password={true}
+						<View style={{ justifyContent: "flex-start", paddingBottom: 10 }}>
+							<TextInput
+								placeholder="Username or Email"
+								onChangeText={text => onSetNameOrEmail(text)}
+								style={{ paddingBottom: 20 }}
+							/>
+							<TextInput
+								secureTextEntry={true}
 								placeholder="Password"
 								onChangeText={text => onSetPassword(text)}
+								style={{ paddingBottom: 20 }}
 							/>
 						</View>
-						<FlatButton
-							enabled={!isLoggingIn}
-							onPress={navToRemindPassPage}
-							textStyle={{ color: colors.commonDetailColor }}
-							title="Forgot password"
-						/>
-						<ProgressButton
-							isProgress={isLoggingIn}
-							btnProps={{
-								onPress: onLogin,
-								title: "Login",
-								backgroundColor: colors.commonTextColor,
-								textStyle: { color: colors.gradientColorOne }
-							}}
-						/>
-						<FlatButton
-							enabled={!isLoggingIn}
-							onPress={navToRegisterPage}
-							textStyle={{ color: colors.commonTextColor }}
-							title="No Account? Register!"
-						/>
+						<Button enabled={!isLoggingIn} onPress={navToRemindPassPage} title="Forgot password" />
+						<Button enabled={!isLoggingIn} title={"Login"} onPress={onLogin} />
+						<Button enabled={!isLoggingIn} onPress={navToRegisterPage} title="No Account? Register!" />
 					</View>
 				</KeyboardAvoidingView>
-			</LinearGradient>
+			</Expo.LinearGradient>
 		);
 	}
 }
