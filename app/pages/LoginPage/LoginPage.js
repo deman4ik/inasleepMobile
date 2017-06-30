@@ -1,7 +1,10 @@
 // @flow
 import React, { Component } from "react";
-import { View, TextInput, Button, StatusBar, KeyboardAvoidingView } from "react-native";
+import { View, Text, TextInput, Button, StatusBar, KeyboardAvoidingView, Image, TouchableOpacity } from "react-native";
 import * as Expo from "expo";
+import Brand from "../../components/Brand";
+import UnderlinedTextInput from "../../components/UnderlinedTextInput";
+import BigButton from "../../components/BigButton";
 import colors from "../../styles/colors";
 import appStyles from "../../styles";
 
@@ -23,28 +26,40 @@ export default class LoginPage extends Component {
 		return (
 			<Expo.LinearGradient
 				colors={[colors.gradientColorOne, colors.gradientColorTwo]}
-				style={{ flex: 1, justifyContent: "center" }}
+				style={{ flex: 1, justifyContent: "flex-end" }}
 			>
-				<KeyboardAvoidingView behavior="padding">
+				<KeyboardAvoidingView behavior="padding" style={{ flex: 1, justifyContent: "space-between" }}>
 					<StatusBar barStyle="light-content" />
+					<Brand style={{ flex: 1 }} />
 
-					<View style={{ justifyContent: "flex-start" }}>
-						<View style={{ justifyContent: "flex-start", paddingBottom: 10 }}>
-							<TextInput
-								placeholder="Username or Email"
-								onChangeText={text => onSetNameOrEmail(text)}
-								style={{ paddingBottom: 20 }}
+					<View style={{ flex: 2, justifyContent: "space-between" }}>
+						<View
+							style={{
+								justifyContent: "space-between",
+								paddingTop: 50
+							}}
+						>
+							<UnderlinedTextInput placeholder="Username or Email" onChangeText={onSetNameOrEmail} />
+
+							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} />
+						</View>
+						<View style={{ marginHorizontal: 10 }}>
+							<BigButton
+								enabled={!isLoggingIn}
+								onPress={navToRemindPassPage}
+								text="Forgot password"
+								transparent={true}
 							/>
-							<TextInput
-								secureTextEntry={true}
-								placeholder="Password"
-								onChangeText={text => onSetPassword(text)}
-								style={{ paddingBottom: 20 }}
+
+							<BigButton enabled={!isLoggingIn} onPress={onLogin} text="Login" />
+
+							<BigButton
+								enabled={!isLoggingIn}
+								onPress={navToRegisterPage}
+								text="No Account? Register!"
+								transparent={true}
 							/>
 						</View>
-						<Button enabled={!isLoggingIn} onPress={navToRemindPassPage} title="Forgot password" />
-						<Button enabled={!isLoggingIn} title={"Login"} onPress={onLogin} />
-						<Button enabled={!isLoggingIn} onPress={navToRegisterPage} title="No Account? Register!" />
 					</View>
 				</KeyboardAvoidingView>
 			</Expo.LinearGradient>

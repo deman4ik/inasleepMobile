@@ -7,5 +7,6 @@ export default {
 	lightBackgroud: "#A2A8BE",
 	blueGray: "#5D6687",
 	blueGrayLight: "#A2A8BE",
-	muteText: "#a1a1a1"
+	muteText: "#a1a1a1",
+	authText: "white"
 };

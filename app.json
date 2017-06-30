@@ -1,19 +1,17 @@
 {
-  "expo": {
-    "version":"0.1.0",
-    "name":"Inasleep",
-    "description":"Best place to store, share, interpretate, improve and visualize your dreams.",
-    "slug":"inasleep",
-    "sdkVersion": "18.0.0",
-    "orientation": "portrait",
-    "primaryColor": "#5D5D7F",
-    "icon": "./images/icon_colored.png",
-    "loading":
-    {
-        "icon": "./images/logo_white.png",
-        "backgroundColor": "#5D5D7F",
-        "hideExponentText": true
-
-    }
- }
+	"expo": {
+		"version": "0.1.0",
+		"name": "Inasleep",
+		"description": "Best place to store, share, interpretate, improve and visualize your dreams.",
+		"slug": "inasleep",
+		"sdkVersion": "18.0.0",
+		"orientation": "portrait",
+		"primaryColor": "#5D5D7F",
+		"icon": "./images/icon_colored.png",
+		"loading": {
+			"icon": "./images/bw_logo.png",
+			"backgroundColor": "#FFFFFF",
+			"hideExponentText": true
+		}
+	}
 }
