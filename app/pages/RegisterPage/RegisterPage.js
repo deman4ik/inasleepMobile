@@ -2,8 +2,7 @@
 import React, { Component } from "react";
 import { View, StatusBar, TextInput, Button, KeyboardAvoidingView } from "react-native";
 import * as Expo from "expo";
-import colors from "../../styles/colors";
-import appStyles from "../../styles";
+import colors from "../../colors";
 
 export default class RegisterPage extends Component {
 	render() {

@@ -1,9 +1,21 @@
 // @flow
 import React from "react";
 import PropTypes from "prop-types";
-import { TextInput, View } from "react-native";
-import styles from "../../styles";
-import colors from "../../styles/colors";
+import { StyleSheet, TextInput, View } from "react-native";
+import colors from "../../colors";
+
+const styles = StyleSheet.create({
+	authTextInputCont: {
+		borderBottomWidth: 1,
+		borderBottomColor: colors.authText,
+		marginHorizontal: 10,
+		marginTop: 10
+	},
+	authTextInput: {
+		color: colors.authText,
+		minHeight: 35
+	}
+});
 
 const UnderlinedTextInput = props => {
 	const { onChangeText, placeholder, placeholderTextColor } = props;

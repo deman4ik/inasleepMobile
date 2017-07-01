@@ -8,7 +8,7 @@ import SearchPage from "../pages/SearchPage";
 import NotificationsPage from "../pages/NotificationsPage";
 import ProfilePage from "../pages/ProfilePage";
 import SettingsPage from "../pages/SettingsPage";
-import colors from "../styles/colors";
+import colors from "../colors";
 
 const AuthNavigator = StackNavigator(
 	{

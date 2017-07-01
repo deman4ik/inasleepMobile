@@ -5,8 +5,7 @@ import * as Expo from "expo";
 import Brand from "../../components/Brand";
 import UnderlinedTextInput from "../../components/UnderlinedTextInput";
 import BigButton from "../../components/BigButton";
-import colors from "../../styles/colors";
-import appStyles from "../../styles";
+import colors from "../../colors";
 
 export default class LoginPage extends Component {
 	static navigationOptions = {
