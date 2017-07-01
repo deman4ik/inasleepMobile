@@ -1,7 +1,10 @@
 // @flow
 import React, { Component } from "react";
-import { View, StatusBar, TextInput, Button, KeyboardAvoidingView } from "react-native";
+import { View, StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import * as Expo from "expo";
+import Brand from "../../components/Brand";
+import UnderlinedTextInput from "../../components/UnderlinedTextInput";
+import BigButton from "../../components/BigButton";
 import colors from "../../colors";
 
 export default class RegisterPage extends Component {
@@ -10,24 +13,35 @@ export default class RegisterPage extends Component {
 		return (
 			<Expo.LinearGradient
 				colors={[colors.gradientColorOne, colors.gradientColorTwo]}
-				style={{ flex: 1, justifyContent: "center" }}
+				style={{ flex: 1, justifyContent: "flex-end" }}
 			>
-				<KeyboardAvoidingView behavior="padding" style={{ flex: 1, justifyContent: "center" }}>
+				<KeyboardAvoidingView behavior="padding" style={{ flex: 1, justifyContent: "space-between" }}>
 					<StatusBar barStyle="light-content" />
-
-					<View style={{ justifyContent: "flex-start" }}>
-						<View style={{ justifyContent: "flex-start" }}>
-							<TextInput placeholder="Email" onChangeText={text => onSetEmail(text)} />
-							<TextInput placeholder="Username" onChangeText={text => onSetName(text)} />
-							<TextInput
-								password={true}
-								placeholder="Password"
-								onChangeText={text => onSetPassword(text)}
-							/>
+					<Brand style={{ flex: 1 }} />
+					<View style={{ flex: 2, justifyContent: "space-between" }}>
+						<View
+							style={{
+								flex: 1,
+								justifyContent: "center"
+							}}
+						>
+							<UnderlinedTextInput placeholder="Email" onChangeText={onSetEmail} />
+							<UnderlinedTextInput placeholder="Username" onChangeText={onSetName} />
+							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} password={true} />
 						</View>
 
-						<Button onPress={onRegister} title={"Create Account"} />
-						<Button enabled={!isLoading} onPress={navToLoginPage} title="Already has Account? Log in!" />
+						<View style={{ flex: 1, justifyContent: "flex-end", marginHorizontal: 10 }}>
+							<ActivityIndicator animating={isLoading} color={colors.authText} />
+
+							<BigButton onPress={onRegister} text="Create Account" />
+
+							<BigButton
+								enabled={!isLoading}
+								onPress={navToLoginPage}
+								text="Already has Account? Log in!"
+								transparent={true}
+							/>
+						</View>
 					</View>
 				</KeyboardAvoidingView>
 			</Expo.LinearGradient>

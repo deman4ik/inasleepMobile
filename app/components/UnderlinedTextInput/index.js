@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 });
 
 const UnderlinedTextInput = props => {
-	const { onChangeText, placeholder, placeholderTextColor } = props;
+	const { onChangeText, placeholder, placeholderTextColor, password } = props;
 
 	return (
 		<View style={styles.authTextInputCont}>
@@ -27,14 +27,18 @@ const UnderlinedTextInput = props => {
 				placeholderTextColor={placeholderTextColor || colors.authText}
 				onChangeText={text => onChangeText(text)}
 				style={styles.authTextInput}
+				password={password}
 			/>
 		</View>
 	);
 };
-
+UnderlinedTextInput.defaultProps = {
+	password: false
+};
 UnderlinedTextInput.propTypes = {
 	onChangeText: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
-	placeholderTextColor: PropTypes.string
+	placeholderTextColor: PropTypes.string,
+	password: PropTypes.bool
 };
 export default UnderlinedTextInput;

@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { View, Text, TextInput, Button, StatusBar, KeyboardAvoidingView, Image, TouchableOpacity } from "react-native";
+import { View, StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import * as Expo from "expo";
 import Brand from "../../components/Brand";
 import UnderlinedTextInput from "../../components/UnderlinedTextInput";
@@ -34,15 +34,17 @@ export default class LoginPage extends Component {
 					<View style={{ flex: 2, justifyContent: "space-between" }}>
 						<View
 							style={{
-								justifyContent: "space-between",
-								paddingTop: 50
+								flex: 1,
+								justifyContent: "center"
 							}}
 						>
 							<UnderlinedTextInput placeholder="Username or Email" onChangeText={onSetNameOrEmail} />
 
-							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} />
+							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} password={true} />
 						</View>
-						<View style={{ marginHorizontal: 10 }}>
+
+						<View style={{ flex: 1, justifyContent: "flex-end", marginHorizontal: 10 }}>
+							<ActivityIndicator animating={isLoggingIn} color={colors.authText} />
 							<BigButton
 								enabled={!isLoggingIn}
 								onPress={navToRemindPassPage}
