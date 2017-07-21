@@ -8,5 +8,11 @@ export default {
 	blueGray: "#5D6687",
 	blueGrayLight: "#A2A8BE",
 	muteText: "#a1a1a1",
-	authText: "white"
+	authText: "white",
+	valhalla: "#2A293B",
+	frenchGrey: "#C6C5C8",
+	tolopea: "#2D2741",
+	purple: "#B395EC",
+	teal: "#4EDBCC",
+	darkBack: "#2C2640"
 };
