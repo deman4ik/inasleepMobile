@@ -1,9 +1,11 @@
 import React from "react";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import FlowPage from "../pages/FlowPage";
+import DiaryPage from "../pages/DiaryPage";
 import DreamPage from "../pages/DreamPage";
+import AddDreamPage from "../pages/AddDreamPage";
 import SearchPage from "../pages/SearchPage";
 import NotificationsPage from "../pages/NotificationsPage";
 import ProfilePage from "../pages/ProfilePage";
@@ -24,13 +26,17 @@ const FlowNavigator = StackNavigator(
 	{
 		Flow: { screen: FlowPage },
 		Profile: { screen: ProfilePage }
-	},
-	{ mode: "modal" }
+	}
 );
-const SearchNavigator = StackNavigator({
-	Search: { screen: SearchPage },
+const DiaryNavigator = StackNavigator({
+	Diary: { screen: DiaryPage },
 	Profile: { screen: ProfilePage }
 });
+const AddDreamNavigator = StackNavigator({
+	AddDream: { screen: AddDreamPage },
+	Dream: { screen: DreamPage }
+},
+{ mode: "modal" });
 const NotificationsNavigator = StackNavigator({
 	Notifications: { screen: NotificationsPage },
 	Profile: { screen: ProfilePage }
@@ -43,15 +49,31 @@ const ProfileNavigator = StackNavigator({
 const MainNavigator = TabNavigator(
 	{
 		Flow: { screen: FlowNavigator },
-		Search: { screen: SearchNavigator },
+		MyDiary: { screen: DiaryNavigator },
+		Alarm: { screen: AddDreamNavigator },
 		Notifications: { screen: NotificationsNavigator },
 		MyProfile: { screen: ProfileNavigator }
 	},
 	{
 		headerMode: "screen",
-		//	tabBarComponent: NavigationComponent,
-		tabBarPosition: "bottom"
-		//tabBarOptions: {}
+		tabBarComponent: ({ jumpToIndex, ...props, navigation }) =>
+			<TabBarBottom
+				{...props}
+				jumpToIndex={index => {
+					console.log(index);
+					if (index === 2) {
+						navigation.navigate("AlarmMode");
+					} else {
+						jumpToIndex(index);
+					}
+				}}
+			/>,
+		tabBarPosition: "bottom",
+
+		tabBarOptions: {
+			showLabel: false,
+			activeTintColor: "black"
+		}
 	}
 );
 
@@ -59,11 +81,12 @@ const AppNavigator = StackNavigator(
 	{
 		Auth: { screen: AuthNavigator },
 		Main: { screen: MainNavigator },
-		Dream: { screen: DreamPage }
+		AlarmMode: { screen: AddDreamPage }
 	},
 	{
+		mode: "modal",
 		headerMode: "none",
-		initialRouteName: "Auth"
+		initialRouteName: "Main"
 	}
 );
 

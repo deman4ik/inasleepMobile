@@ -4,7 +4,7 @@
 		"name": "Inasleep",
 		"description": "Best place to store, share, interpretate, improve and visualize your dreams.",
 		"slug": "inasleep",
-		"sdkVersion": "19.0.0",
+		"sdkVersion": "20.0.0",
 		"orientation": "portrait",
 		"primaryColor": "#5D5D7F",
 		"icon": "./images/icon_colored.png",
@@ -12,6 +12,9 @@
 			"icon": "./images/bw_logo.png",
 			"backgroundColor": "#FFFFFF",
 			"hideExponentText": true
+		},
+		"packagerOpts": {
+			"assetExts": ["ttf"]
 		}
 	}
 }

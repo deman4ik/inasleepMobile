@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export default class NotificationsPage extends Component {
+export default class AddDreamPage extends Component {
 	static navigationOptions = {
-		tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications-outline" size={30} color={tintColor} />
+		tabBarIcon: ({ tintColor }) => <Ionicons name="ios-clock-outline" size={26} color={tintColor} />
 	};
 	render() {
 		return (
@@ -14,10 +14,10 @@ export default class NotificationsPage extends Component {
 					flex: 1,
 					justifyContent: "center",
 					alignItems: "center",
-					backgroundColor: "red"
+					backgroundColor: "black"
 				}}
 			>
-				<Text style={{ fontSize: 40, color: "white" }}>Notifications Page</Text>
+				<Text style={{ fontSize: 40, color: "white" }}>Add Dream Page</Text>
 			</View>
 		);
 	}
