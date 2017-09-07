@@ -26,17 +26,22 @@ const FlowNavigator = StackNavigator(
 	{
 		Flow: { screen: FlowPage },
 		Profile: { screen: ProfilePage }
-	}
+	} /*,
+	{
+		headerMode: "none"
+	}*/
 );
 const DiaryNavigator = StackNavigator({
 	Diary: { screen: DiaryPage },
 	Profile: { screen: ProfilePage }
 });
-const AddDreamNavigator = StackNavigator({
-	AddDream: { screen: AddDreamPage },
-	Dream: { screen: DreamPage }
-},
-{ mode: "modal" });
+const AddDreamNavigator = StackNavigator(
+	{
+		AddDream: { screen: AddDreamPage },
+		Dream: { screen: DreamPage }
+	},
+	{ mode: "modal" }
+);
 const NotificationsNavigator = StackNavigator({
 	Notifications: { screen: NotificationsPage },
 	Profile: { screen: ProfilePage }
@@ -56,7 +61,8 @@ const MainNavigator = TabNavigator(
 	},
 	{
 		headerMode: "screen",
-		tabBarComponent: ({ jumpToIndex, ...props, navigation }) =>
+		tabBarComponent: TabBarBottom,
+		/*tabBarComponent: ({ jumpToIndex, ...props, navigation }) =>
 			<TabBarBottom
 				{...props}
 				jumpToIndex={index => {
@@ -67,7 +73,7 @@ const MainNavigator = TabNavigator(
 						jumpToIndex(index);
 					}
 				}}
-			/>,
+			/>,*/
 		tabBarPosition: "bottom",
 
 		tabBarOptions: {
@@ -86,7 +92,7 @@ const AppNavigator = StackNavigator(
 	{
 		mode: "modal",
 		headerMode: "none",
-		initialRouteName: "Main"
+		initialRouteName: "Auth"
 	}
 );
 

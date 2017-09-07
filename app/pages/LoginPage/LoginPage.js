@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from "react";
-import { View, StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
+import { StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import * as Expo from "expo";
+import { View, TextInput } from "@shoutem/ui";
 import Brand from "../../components/Brand";
-import UnderlinedTextInput from "../../components/UnderlinedTextInput";
 import BigButton from "../../components/BigButton";
 import colors from "../../colors";
 
@@ -13,6 +13,8 @@ export default class LoginPage extends Component {
 			visible: false
 		}
 	};
+	//TODO: onSubmitEditing повесить focus на TextInput с паролем
+	// когда https://github.com/shoutem/ui/pull/280 попадет в мастер
 	render() {
 		const {
 			isLoggingIn,
@@ -23,14 +25,10 @@ export default class LoginPage extends Component {
 			navToRemindPassPage
 		} = this.props;
 		return (
-			<Expo.LinearGradient
-				colors={[colors.gradientColorOne, colors.gradientColorTwo]}
-				style={{ flex: 1, justifyContent: "flex-end" }}
-			>
+			<View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "white" }}>
+				<StatusBar barStyle="dark-content" />
+				<Brand style={{ flex: 1 / 2 }} />
 				<KeyboardAvoidingView behavior="padding" style={{ flex: 1, justifyContent: "space-between" }}>
-					<StatusBar barStyle="light-content" />
-					<Brand style={{ flex: 1 }} />
-
 					<View style={{ flex: 2, justifyContent: "space-between" }}>
 						<View
 							style={{
@@ -38,32 +36,44 @@ export default class LoginPage extends Component {
 								justifyContent: "center"
 							}}
 						>
-							<UnderlinedTextInput placeholder="Username or Email" onChangeText={onSetNameOrEmail} />
+							<TextInput
+								placeholder="Username or Email"
+								onChangeText={onSetNameOrEmail}
+								returnKeyType="next"
+							/>
 
-							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} password={true} />
+							<TextInput
+								placeholder="Password"
+								onChangeText={onSetPassword}
+								password={true}
+								returnKeyType="done"
+								onSubmitEditing={onLogin}
+							/>
 						</View>
 
-						<View style={{ flex: 1, justifyContent: "flex-end", marginHorizontal: 10 }}>
+						<View style={{ flex: 1, justifyContent: "center", marginHorizontal: 10 }}>
 							<ActivityIndicator animating={isLoggingIn} color={colors.authText} />
-							<BigButton
-								enabled={!isLoggingIn}
-								onPress={navToRemindPassPage}
-								text="Forgot password"
-								transparent={true}
-							/>
 
-							<BigButton enabled={!isLoggingIn} onPress={onLogin} text="Login" />
+							<BigButton enabled={!isLoggingIn} onPress={onLogin} text="Login" styleName="secondary" />
 
-							<BigButton
-								enabled={!isLoggingIn}
-								onPress={navToRegisterPage}
-								text="No Account? Register!"
-								transparent={true}
-							/>
+							<View styleName="horizontal">
+								<BigButton
+									enabled={!isLoggingIn}
+									onPress={navToRemindPassPage}
+									text="Forgot password"
+									styleName="full-width clear"
+								/>
+								<BigButton
+									enabled={!isLoggingIn}
+									onPress={navToRegisterPage}
+									text="No Account? Register!"
+									styleName="full-width clear"
+								/>
+							</View>
 						</View>
 					</View>
 				</KeyboardAvoidingView>
-			</Expo.LinearGradient>
+			</View>
 		);
 	}
 }

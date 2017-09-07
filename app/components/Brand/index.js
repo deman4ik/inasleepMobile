@@ -6,7 +6,7 @@ const Brand = props => {
 	const { style } = props;
 	return (
 		<View style={{ justifyContent: "flex-end", alignItems: "center", ...style }}>
-			<Image style={{ height: 100 }} resizeMode={"contain"} source={require("../../../images/logo_white.png")} />
+			<Image style={{ height: 100 }} resizeMode={"contain"} source={require("../../../images/bw_logo.png")} />
 		</View>
 	);
 };

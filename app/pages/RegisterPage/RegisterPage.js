@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from "react";
-import { View, StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
+import { StatusBar, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import * as Expo from "expo";
 import Brand from "../../components/Brand";
-import UnderlinedTextInput from "../../components/UnderlinedTextInput";
+import { View, TextInput } from "@shoutem/ui";
 import BigButton from "../../components/BigButton";
 import colors from "../../colors";
 
@@ -25,9 +25,9 @@ export default class RegisterPage extends Component {
 								justifyContent: "center"
 							}}
 						>
-							<UnderlinedTextInput placeholder="Email" onChangeText={onSetEmail} />
-							<UnderlinedTextInput placeholder="Username" onChangeText={onSetName} />
-							<UnderlinedTextInput placeholder="Password" onChangeText={onSetPassword} password={true} />
+							<TextInput placeholder="Email" onChangeText={onSetEmail} />
+							<TextInput placeholder="Username" onChangeText={onSetName} />
+							<TextInput placeholder="Password" onChangeText={onSetPassword} password={true} />
 						</View>
 
 						<View style={{ flex: 1, justifyContent: "flex-end", marginHorizontal: 10 }}>
