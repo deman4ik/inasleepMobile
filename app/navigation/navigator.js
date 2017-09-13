@@ -92,7 +92,7 @@ const AppNavigator = StackNavigator(
 	{
 		mode: "modal",
 		headerMode: "none",
-		initialRouteName: "Auth"
+		initialRouteName: "Main"
 	}
 );
 

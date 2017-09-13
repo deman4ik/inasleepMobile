@@ -1,8 +1,9 @@
 // @flow
 import React, { Component } from "react";
 import { FlatList, StatusBar, Text, View, Button, Image, Platform, TextInput } from "react-native";
-import { Title, NavigationBar, Icon } from "@shoutem/ui";
+import { Screen, Title, NavigationBar, Icon } from "@shoutem/ui";
 import { Ionicons } from "@expo/vector-icons";
+import DreamCard from "../../components/DreamCard";
 import colors from "../../colors";
 
 export default class FlowPage extends Component {
@@ -32,16 +33,25 @@ export default class FlowPage extends Component {
 	render() {
 		const { data, navToDreamPage } = this.props;
 		return (
-			<View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
+			<Screen styleName="paper">
 				<StatusBar barStyle="dark-content" />
 
 				<FlatList
 					data={data}
 					//style={{ paddingTop: 90 }}
 					keyExtractor={(item, index) => item.id}
-					renderItem={({ item }) => <Text>{item.text}</Text>}
+					renderItem={({ item }) => (
+						<DreamCard
+							id={item.id}
+							author={item.author}
+							image={item.image}
+							title={item.title}
+							likesCount={item.likesCount}
+							commentsCount={item.commentsCount}
+						/>
+					)}
 				/>
-			</View>
+			</Screen>
 		);
 	}
 }

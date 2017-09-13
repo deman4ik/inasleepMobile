@@ -11,6 +11,7 @@ const DEFAULT_STATE = {
 			avatarText: "P",
 			image: "https://cdn.dribbble.com/users/288987/screenshots/2220510/in-the-woods_1x.jpg",
 			imageColor: "rgba(23, 12, 46,.9)",
+			title: "Сказочные чудеса",
 			text: `Мне приснился чудесный сон, о бабочках, птичках-синичках и единорогах.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -29,6 +30,7 @@ const DEFAULT_STATE = {
 			avatarText: "LJ",
 			image: "https://cdn.dribbble.com/users/288987/screenshots/3342177/fox-tale_1x.jpg",
 			imageColor: "rgba(225, 188, 142,.9)",
+			title: "Лесное приключение",
 			text: "Кошмарное сновидение сегодня! Очутилась одна в темном лесу, а медведь собирал грибы в лису!",
 			likesCount: 213,
 			commentsCount: 4
@@ -40,6 +42,7 @@ const DEFAULT_STATE = {
 			avatarText: "P",
 			image: "https://cdn.dribbble.com/users/356847/screenshots/1761291/winter-sky_1x.jpg",
 			imageColor: "rgba(46, 69, 100,.9)",
+			title: "Ничего не приснилось",
 			text: "Ничего не приснилось, зато хорошо выспался! Всегда бы так.",
 			likesCount: 6,
 			commentsCount: 0
@@ -51,6 +54,7 @@ const DEFAULT_STATE = {
 			avatarText: "LD",
 			image: "https://cdn.dribbble.com/users/150724/screenshots/2203790/362_chasing_dreams_1x.png",
 			imageColor: "rgba(80, 44, 127,.9)",
+			title: "Дом в деревне",
 			text:
 				"Осознаюсь в деревне, около дома в котором я провел свое детство. Попробовал взлететь - не получилось. Пришлось идти пешком на речку.",
 			likesCount: 95,
