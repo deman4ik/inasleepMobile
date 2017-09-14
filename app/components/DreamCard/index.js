@@ -31,20 +31,23 @@ const DreamCard = props => {
 					</Button>
 				</View>
 				<Title styleName="sm-gutter-bottom">{title}</Title>
-				<View styleName="horizontal">
-					<View styleName="horizontal h-center v-center space-between">
+				<View styleName="horizontal v-center space-between">
+					<Button styleName="full-screen clear">
+
 						<Image
 							styleName="small-avatar"
 							source={{
 								uri: avatar
 							}}
+							style={{marginRight: 10}}
 						/>
-						<Caption style={{ color: "white" }}>{author}</Caption>
-					</View>
-					<View styleName="horizontal center space-between">
+
+						<Caption style={{ color: "#cccccc" }}>{author}</Caption>
+					</Button>
+					<Button styleName="full-screen clear h-center ">
 						<Icon name="address" style={{ color: "white", fontSize: 18 }} />
-						<Caption style={{ color: "white" }}>Москва, Россия</Caption>
-					</View>
+						<Caption style={{ color: "#cccccc" }}>Москва, Россия</Caption>
+					</Button>
 				</View>
 
 				<View styleName="horizontal">
