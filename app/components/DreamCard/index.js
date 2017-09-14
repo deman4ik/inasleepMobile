@@ -16,32 +16,49 @@ import {
 } from "@shoutem/ui";
 
 const DreamCard = props => {
-	const { id, author, image, title, likesCount, commentsCount } = props;
+	const { id, author, avatar, image, title, likesCount, commentsCount } = props;
 	return (
-		<Image styleName="large-banner" source={{ uri: image }}>
-			<Tile style={{ flex: 1, justifyContent: "flex-end" }}>
-				<Subtitle styleName="md-gutter-top">{title}</Subtitle>
-				<Caption styleName="full-width" style={{ color: "white" }}>
-					{author}
-				</Caption>
-				<View styleName="horizontal h-start">
-					<Icon name="address" styleName="full-width" style={{ color: "white", fontSize: 18 }} />
-					<Caption styleName="full-width" style={{ color: "white" }}>
-						Moscow, Russia
-					</Caption>
+		<Image
+			styleName="large"
+			source={{
+				uri: image
+			}}
+		>
+			<Tile styleName="content">
+				<View styleName="actions">
+					<Button styleName="tight clear">
+						<Icon name="more-horizontal" style={{ color: "white" }} />
+					</Button>
 				</View>
-				<View styleName="horizontal h-start">
-					<Button styleName="full-width clear">
+				<Title styleName="sm-gutter-bottom">{title}</Title>
+				<View styleName="horizontal">
+					<View styleName="horizontal h-center v-center space-between">
+						<Image
+							styleName="small-avatar"
+							source={{
+								uri: avatar
+							}}
+						/>
+						<Caption style={{ color: "white" }}>{author}</Caption>
+					</View>
+					<View styleName="horizontal center space-between">
+						<Icon name="address" style={{ color: "white", fontSize: 18 }} />
+						<Caption style={{ color: "white" }}>Москва, Россия</Caption>
+					</View>
+				</View>
+
+				<View styleName="horizontal">
+					<Button styleName="clear">
 						<Icon name="like" style={{ color: "white" }} />
 						<Text style={{ color: "white" }}>{likesCount}</Text>
 					</Button>
-					<Button styleName="full-width clear">
+					<Button styleName="clear">
 						<Icon name="comment" style={{ color: "white" }} />
 						<Text style={{ color: "white" }}>{commentsCount}</Text>
 					</Button>
-					<Button styleName="full-width clear">
+					<Button styleName="clear">
 						<Icon name="about" style={{ color: "white" }} />
-						<Text style={{ color: "white" }}>2</Text>
+						<Text style={{ color: "white" }}>3</Text>
 					</Button>
 				</View>
 			</Tile>

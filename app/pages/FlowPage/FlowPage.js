@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
-import { FlatList, StatusBar, Text, View, Button, Image, Platform, TextInput } from "react-native";
-import { Screen, Title, NavigationBar, Icon } from "@shoutem/ui";
+import { FlatList, StatusBar, Text, Button, Image, Platform, TextInput } from "react-native";
+import { Screen, View, Title, NavigationBar, Icon } from "@shoutem/ui";
 import { Ionicons } from "@expo/vector-icons";
 import DreamCard from "../../components/DreamCard";
 import colors from "../../colors";
@@ -10,18 +10,32 @@ export default class FlowPage extends Component {
 	static navigationOptions = ({ navigation }) => ({
 		headerLeft: null,
 		headerTitle: (
-			<TextInput
+			<View
+				styleName="rounded-corners"
 				style={{
-					alignSelf: "flex-start",
-					borderWidth: 1,
 					marginTop: Platform.OS === "android" ? 20 : 0,
-					//	left: Platform.OS === "ios" ? -65 : 0,
+					alignSelf: "flex-start",
+
+					borderRadius: 10,
+					borderColor: "transparent",
+					backgroundColor: "#DCDCDE",
 					left: 0,
 					right: 0,
-					width: "100%"
+					width: "100%",
+					flexDirection: "row"
 				}}
-				placeholder={"Search"}
-			/>
+			>
+				<Ionicons name="ios-search" size={20} style={{ color: "#97989D", margin: 5 }} />
+				<TextInput
+					style={{
+						width: "100%",
+						margin: 5
+
+						//	left: Platform.OS === "ios" ? -65 : 0,
+					}}
+					placeholder={"Search"}
+				/>
+			</View>
 		),
 		headerRight: null,
 		/*	headerRight: (
@@ -44,6 +58,7 @@ export default class FlowPage extends Component {
 						<DreamCard
 							id={item.id}
 							author={item.author}
+							avatar={item.avatar}
 							image={item.image}
 							title={item.title}
 							likesCount={item.likesCount}
