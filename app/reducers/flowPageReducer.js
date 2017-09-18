@@ -20,8 +20,10 @@ const DEFAULT_STATE = {
       in reprehenderit in voluptate velit esse cillum dolore eu fugiat
       nulla pariatur. Excepteur sint occaecat cupidatat non proident,
       sunt in culpa qui officia deserunt mollit anim id est laborum`,
+			date: "23.08.2017",
 			likesCount: 368,
-			commentsCount: 7
+			commentsCount: 7,
+			interpetsCount: 2
 		},
 		{
 			id: 2,
@@ -32,8 +34,10 @@ const DEFAULT_STATE = {
 			imageColor: "rgba(225, 188, 142,.9)",
 			title: "Лесное приключение",
 			text: "Кошмарное сновидение сегодня! Очутилась одна в темном лесу, а медведь собирал грибы в лису!",
+			date: "12.07.2017",
 			likesCount: 213,
-			commentsCount: 4
+			commentsCount: 4,
+			interpetsCount: 0
 		},
 		{
 			id: 3,
@@ -44,8 +48,10 @@ const DEFAULT_STATE = {
 			imageColor: "rgba(46, 69, 100,.9)",
 			title: "Ничего не приснилось",
 			text: "Ничего не приснилось, зато хорошо выспался! Всегда бы так.",
+			date: "02.07.2017",
 			likesCount: 6,
-			commentsCount: 0
+			commentsCount: 0,
+			interpetsCount: 1
 		},
 		{
 			id: 4,
@@ -57,8 +63,10 @@ const DEFAULT_STATE = {
 			title: "Дом в деревне",
 			text:
 				"Осознаюсь в деревне, около дома в котором я провел свое детство. Попробовал взлететь - не получилось. Пришлось идти пешком на речку.",
+			date: "02.07.2017",
 			likesCount: 95,
-			commentsCount: 2
+			commentsCount: 2,
+			interpetsCount: 0
 		}
 	]
 };

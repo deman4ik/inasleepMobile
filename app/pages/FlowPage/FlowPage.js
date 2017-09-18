@@ -47,7 +47,7 @@ export default class FlowPage extends Component {
 	render() {
 		const { data, navToDreamPage } = this.props;
 		return (
-			<Screen styleName="paper">
+			<Screen>
 				<StatusBar barStyle="dark-content" />
 
 				<FlatList
@@ -61,8 +61,10 @@ export default class FlowPage extends Component {
 							avatar={item.avatar}
 							image={item.image}
 							title={item.title}
+							date={item.date}
 							likesCount={item.likesCount}
 							commentsCount={item.commentsCount}
+							interpetsCount={item.interpetsCount}
 						/>
 					)}
 				/>

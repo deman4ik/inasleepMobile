@@ -16,52 +16,65 @@ import {
 } from "@shoutem/ui";
 
 const DreamCard = props => {
-	const { id, author, avatar, image, title, likesCount, commentsCount } = props;
+	const { id, author, avatar, image, title, date, likesCount, commentsCount, interpetsCount } = props;
 	return (
 		<Image
 			styleName="large"
 			source={{
 				uri: image
 			}}
+			style={{ borderColor: "transparent", borderRadius: 15, marginBottom: 10 }}
 		>
-			<Tile styleName="content">
+			<Tile>
 				<View styleName="actions">
 					<Button styleName="tight clear">
 						<Icon name="more-horizontal" style={{ color: "white" }} />
 					</Button>
 				</View>
-				<Title styleName="sm-gutter-bottom">{title}</Title>
-				<View styleName="horizontal v-center space-between">
-					<Button styleName="full-screen clear">
+				<View styleName="content">
+					<Title style={{ color: "white" }} styleName="sm-gutter-bottom h-center">
+						{title}
+					</Title>
+					<View styleName="horizontal v-center space-between">
+						<Button styleName="clear">
+							<Image
+								styleName="small-avatar"
+								source={{
+									uri: avatar
+								}}
+								style={{ marginRight: 10 }}
+							/>
 
-						<Image
-							styleName="small-avatar"
-							source={{
-								uri: avatar
-							}}
-							style={{marginRight: 10}}
-						/>
-
-						<Caption style={{ color: "#cccccc" }}>{author}</Caption>
-					</Button>
-					<Button styleName="full-screen clear h-center ">
-						<Icon name="address" style={{ color: "white", fontSize: 18 }} />
-						<Caption style={{ color: "#cccccc" }}>Москва, Россия</Caption>
-					</Button>
+							<Text style={{ color: "white" }}>{author}</Text>
+						</Button>
+						<View styleName="vertical h-end">
+							<Button styleName="clear">
+								<Caption style={{ color: "white" }}>{date}</Caption>
+							</Button>
+							<Button styleName="clear">
+								<Caption style={{ color: "white" }}>Москва, Россия</Caption>
+							</Button>
+						</View>
+					</View>
 				</View>
-
-				<View styleName="horizontal">
-					<Button styleName="clear">
+				<View
+					styleName="horizontal"
+					style={{
+						position: "absolute",
+						bottom: 15
+					}}
+				>
+					<Button styleName="stacked clear">
 						<Icon name="like" style={{ color: "white" }} />
 						<Text style={{ color: "white" }}>{likesCount}</Text>
 					</Button>
-					<Button styleName="clear">
+					<Button styleName="stacked clear">
 						<Icon name="comment" style={{ color: "white" }} />
 						<Text style={{ color: "white" }}>{commentsCount}</Text>
 					</Button>
-					<Button styleName="clear">
+					<Button styleName="stacked clear">
 						<Icon name="about" style={{ color: "white" }} />
-						<Text style={{ color: "white" }}>3</Text>
+						<Text style={{ color: "white" }}>{interpetsCount}</Text>
 					</Button>
 				</View>
 			</Tile>
