@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+
+import { Dimensions } from "react-native";
 import {
 	View,
 	Image,
@@ -14,6 +16,12 @@ import {
 	Icon,
 	Divider
 } from "@shoutem/ui";
+import { getSizeRelativeToReference } from "@shoutem/theme";
+const window = Dimensions.get("window");
+function dimensionRelativeToIphone(dimension, actualRefVal = window.width) {
+	// 375 is iPhone width
+	return getSizeRelativeToReference(dimension, 375, actualRefVal);
+}
 
 const DreamCard = props => {
 	const { id, author, avatar, image, title, date, likesCount, commentsCount, interpetsCount } = props;
@@ -23,19 +31,23 @@ const DreamCard = props => {
 			source={{
 				uri: image
 			}}
-			style={{ borderColor: "transparent", borderRadius: 15, marginBottom: 10 }}
+			style={{
+				borderColor: "transparent",
+				borderRadius: 15,
+				marginHorizontal: 10,
+				marginVertical: 3,
+				width: window.width - 20
+			}}
 		>
-			<Tile>
-				<View styleName="actions">
-					<Button styleName="tight clear">
-						<Icon name="more-horizontal" style={{ color: "white" }} />
-					</Button>
-				</View>
-				<View styleName="content">
-					<Title style={{ color: "white" }} styleName="sm-gutter-bottom h-center">
+			<Tile style={{ position: "relative" }}>
+				<View>
+					<Title style={{ color: "white" }} styleName="lg-gutter-top md-gutter-bottom h-center">
 						{title}
 					</Title>
-					<View styleName="horizontal v-center space-between">
+					<View
+						styleName="horizontal v-center space-between md-gutter-bottom"
+						style={{ paddingHorizontal: 15 }}
+					>
 						<Button styleName="clear">
 							<Image
 								styleName="small-avatar"
@@ -56,25 +68,29 @@ const DreamCard = props => {
 							</Button>
 						</View>
 					</View>
+					<View
+						styleName="horizontal "
+						style={{
+							alignSelf: "flex-end"
+						}}
+					>
+						<Button styleName="stacked clear">
+							<Icon name="like" style={{ color: "white" }} />
+							<Text style={{ color: "white" }}>{likesCount}</Text>
+						</Button>
+						<Button styleName="stacked clear">
+							<Icon name="comment" style={{ color: "white" }} />
+							<Text style={{ color: "white" }}>{commentsCount}</Text>
+						</Button>
+						<Button styleName="stacked clear">
+							<Icon name="about" style={{ color: "white" }} />
+							<Text style={{ color: "white" }}>{interpetsCount}</Text>
+						</Button>
+					</View>
 				</View>
-				<View
-					styleName="horizontal"
-					style={{
-						position: "absolute",
-						bottom: 15
-					}}
-				>
-					<Button styleName="stacked clear">
-						<Icon name="like" style={{ color: "white" }} />
-						<Text style={{ color: "white" }}>{likesCount}</Text>
-					</Button>
-					<Button styleName="stacked clear">
-						<Icon name="comment" style={{ color: "white" }} />
-						<Text style={{ color: "white" }}>{commentsCount}</Text>
-					</Button>
-					<Button styleName="stacked clear">
-						<Icon name="about" style={{ color: "white" }} />
-						<Text style={{ color: "white" }}>{interpetsCount}</Text>
+				<View styleName="actions">
+					<Button styleName="tight clear">
+						<Icon name="more-horizontal" style={{ color: "white" }} />
 					</Button>
 				</View>
 			</Tile>
