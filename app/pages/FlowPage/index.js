@@ -4,16 +4,17 @@ import FlowPage from "./FlowPage";
 import { connect } from "react-redux";
 import * as actions from "./actions"; // mapDispatchToProps
 import { navToDreamPage } from "../../navigation/navActions";
-import { getFlowPage, getNav } from "../../reducers/rootReducer";
+import { getFlowPage, getNav, getDreamsByFeed } from "../../reducers/rootReducer";
 
 const mapStateToProps = state => ({
-  ...getFlowPage(state),
-  nav: {
-    ...getNav(state)
-  }
+	data: [...getDreamsByFeed(state, state.flowPage.feedFilter)],
+	...getFlowPage(state),
+	nav: {
+		...getNav(state)
+	}
 });
 
 export default connect(mapStateToProps, {
-  ...actions,
-  navToDreamPage
+	...actions,
+	navToDreamPage
 })(FlowPage);

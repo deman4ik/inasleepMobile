@@ -3,10 +3,12 @@
 import DreamPage from "./DreamPage";
 import { connect } from "react-redux";
 import * as actions from "./actions"; // mapDispatchToProps
-import { getAuth } from "../../reducers/rootReducer";
+import { getNav } from "../../reducers/rootReducer";
 
 const mapStateToProps = state => ({
-  ...getAuth(state)
+	nav: {
+		...getNav(state)
+	}
 });
 
 export default connect(mapStateToProps, actions)(DreamPage);

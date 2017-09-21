@@ -25,11 +25,13 @@ const AuthNavigator = StackNavigator(
 const FlowNavigator = StackNavigator(
 	{
 		Flow: { screen: FlowPage },
-		Profile: { screen: ProfilePage }
-	} /*,
+		Profile: { screen: ProfilePage },
+		Dream: { screen: DreamPage }
+	},
 	{
+		mode: "modal",
 		headerMode: "none"
-	}*/
+	}
 );
 const DiaryNavigator = StackNavigator({
 	Diary: { screen: DiaryPage },

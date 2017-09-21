@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 
-import { Dimensions } from "react-native";
+import { Dimensions, TouchableHighlight } from "react-native";
 import {
 	View,
 	Image,
@@ -24,77 +24,79 @@ function dimensionRelativeToIphone(dimension, actualRefVal = window.width) {
 }
 
 const DreamCard = props => {
-	const { id, author, avatar, image, title, date, likesCount, commentsCount, interpetsCount } = props;
+	const { id, author, avatar, image, title, date, likesCount, commentsCount, interpetsCount, onPress } = props;
 	return (
-		<Image
-			styleName="large"
-			source={{
-				uri: image
-			}}
-			style={{
-				borderColor: "transparent",
-				borderRadius: 15,
-				marginHorizontal: 10,
-				marginVertical: 3,
-				width: window.width - 20
-			}}
-		>
-			<Tile style={{ position: "relative" }}>
-				<View>
-					<Title style={{ color: "white" }} styleName="lg-gutter-top md-gutter-bottom h-center">
-						{title}
-					</Title>
-					<View
-						styleName="horizontal v-center space-between md-gutter-bottom"
-						style={{ paddingHorizontal: 15 }}
-					>
-						<Button styleName="clear">
-							<Image
-								styleName="small-avatar"
-								source={{
-									uri: avatar
-								}}
-								style={{ marginRight: 10 }}
-							/>
+		<TouchableHighlight onPress={() => onPress(id)}>
+			<Image
+				styleName="large"
+				source={{
+					uri: image
+				}}
+				style={{
+					borderColor: "transparent",
+					borderRadius: 15,
+					marginHorizontal: 10,
+					marginVertical: 3,
+					width: window.width - 20
+				}}
+			>
+				<Tile style={{ position: "relative" }}>
+					<View>
+						<Title style={{ color: "white" }} styleName="lg-gutter-top md-gutter-bottom h-center">
+							{title}
+						</Title>
+						<View
+							styleName="horizontal v-center space-between md-gutter-bottom"
+							style={{ paddingHorizontal: 15 }}
+						>
+							<Button styleName="clear">
+								<Image
+									styleName="small-avatar"
+									source={{
+										uri: avatar
+									}}
+									style={{ marginRight: 10 }}
+								/>
 
-							<Text style={{ color: "white" }}>{author}</Text>
-						</Button>
-						<View styleName="vertical h-end">
-							<Button styleName="clear">
-								<Caption style={{ color: "white" }}>{date}</Caption>
+								<Text style={{ color: "white" }}>{author}</Text>
 							</Button>
-							<Button styleName="clear">
-								<Caption style={{ color: "white" }}>Москва, Россия</Caption>
+							<View styleName="vertical h-end">
+								<Button styleName="clear">
+									<Caption style={{ color: "white" }}>{date}</Caption>
+								</Button>
+								<Button styleName="clear">
+									<Caption style={{ color: "white" }}>Москва, Россия</Caption>
+								</Button>
+							</View>
+						</View>
+						<View
+							styleName="horizontal "
+							style={{
+								alignSelf: "flex-end"
+							}}
+						>
+							<Button styleName="stacked clear">
+								<Icon name="like" style={{ color: "white" }} />
+								<Text style={{ color: "white" }}>{likesCount}</Text>
+							</Button>
+							<Button styleName="stacked clear">
+								<Icon name="comment" style={{ color: "white" }} />
+								<Text style={{ color: "white" }}>{commentsCount}</Text>
+							</Button>
+							<Button styleName="stacked clear">
+								<Icon name="about" style={{ color: "white" }} />
+								<Text style={{ color: "white" }}>{interpetsCount}</Text>
 							</Button>
 						</View>
 					</View>
-					<View
-						styleName="horizontal "
-						style={{
-							alignSelf: "flex-end"
-						}}
-					>
-						<Button styleName="stacked clear">
-							<Icon name="like" style={{ color: "white" }} />
-							<Text style={{ color: "white" }}>{likesCount}</Text>
-						</Button>
-						<Button styleName="stacked clear">
-							<Icon name="comment" style={{ color: "white" }} />
-							<Text style={{ color: "white" }}>{commentsCount}</Text>
-						</Button>
-						<Button styleName="stacked clear">
-							<Icon name="about" style={{ color: "white" }} />
-							<Text style={{ color: "white" }}>{interpetsCount}</Text>
+					<View styleName="actions">
+						<Button styleName="tight clear">
+							<Icon name="more-horizontal" style={{ color: "white" }} />
 						</Button>
 					</View>
-				</View>
-				<View styleName="actions">
-					<Button styleName="tight clear">
-						<Icon name="more-horizontal" style={{ color: "white" }} />
-					</Button>
-				</View>
-			</Tile>
-		</Image>
+				</Tile>
+			</Image>
+		</TouchableHighlight>
 	);
 };
 
