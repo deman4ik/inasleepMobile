@@ -1,18 +1,19 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, Platform, StatusBar, StyleSheet, Text, View } from "react-native";
-import { Image } from "@shoutem/ui";
+import { Dimensions, Animated, Platform, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Lightbox } from "@shoutem/ui";
 
 const HEADER_MAX_HEIGHT = 300;
 const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 60 : 73;
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
+const WINDOW_WIDTH = Dimensions.get("window").width;
 
 export default class DreamDetail extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			id: props.navigation.state.params.dreamId,
+			id: props.id,
 			scrollY: new Animated.Value(0)
 		};
 	}
@@ -72,18 +73,27 @@ export default class DreamDetail extends Component {
 					{this._renderScrollViewContent()}
 				</Animated.ScrollView>
 				<Animated.View style={[styles.header, { transform: [{ translateY: headerTranslate }] }]}>
-					<Animated.Image
-						style={[
-							styles.backgroundImage,
-							{
-								opacity: imageOpacity,
-								transform: [{ translateY: imageTranslate }]
-							}
-						]}
-						source={{
-							uri: "https://cdn.dribbble.com/users/288987/screenshots/2220510/in-the-woods_1x.jpg"
+					<Lightbox
+						style={{
+							width: WINDOW_WIDTH / 2,
+							height: WINDOW_WIDTH / 2,
+							justifyContent: "center",
+							alignSelf: "center"
 						}}
-					/>
+					>
+						<Animated.Image
+							style={[
+								styles.backgroundImage,
+								{
+									opacity: imageOpacity,
+									transform: [{ translateY: imageTranslate }]
+								}
+							]}
+							source={{
+								uri: "https://cdn.dribbble.com/users/288987/screenshots/2220510/in-the-woods_1x.jpg"
+							}}
+						/>
+					</Lightbox>
 				</Animated.View>
 				<Animated.View
 					style={[

@@ -4,12 +4,21 @@ import { FlatList, StatusBar, Text, Button, Image, Platform, TextInput, Touchabl
 import { Screen, View, Title, NavigationBar, Icon } from "@shoutem/ui";
 import { Ionicons } from "@expo/vector-icons";
 import DreamCard from "../../components/DreamCard";
+import DreamDetail from "../../components/DreamDetail";
+import Modal from "react-native-modal";
 import colors from "../../colors";
 
 export default class FlowPage extends Component {
 	static navigationOptions = ({ navigation }) => ({
 		tabBarIcon: ({ tintColor }) => <Ionicons name="ios-cloudy-night" size={30} color={tintColor} />
 	});
+	state = {
+		isModalVisible: false
+	};
+
+	_showModal = () => this.setState({ isModalVisible: true });
+
+	_hideModal = () => this.setState({ isModalVisible: false });
 	render() {
 		const { data, navToDreamPage } = this.props;
 		return (
@@ -70,10 +79,19 @@ export default class FlowPage extends Component {
 							likesCount={item.likesCount}
 							commentsCount={item.commentsCount}
 							interpetsCount={item.interpetsCount}
-							onPress={navToDreamPage}
+							onPress={this._showModal}
 						/>
 					)}
 				/>
+				<Modal
+					style={{
+						margin: 0,
+						backgroundColor: "white"
+					}}
+					isVisible={this.state.isModalVisible}
+				>
+					<DreamDetail id={1} />
+				</Modal>
 			</Screen>
 		);
 	}
