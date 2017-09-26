@@ -7,9 +7,9 @@
 		"sdkVersion": "21.0.0",
 		"orientation": "portrait",
 		"primaryColor": "#5D5D7F",
-		"icon": "./images/icon_colored.png",
+		"icon": "./src/assets/icon_colored.png",
 		"loading": {
-			"icon": "./images/bw_logo.png",
+			"icon": "./src/assets/bw_logo.png",
 			"backgroundColor": "#FFFFFF",
 			"hideExponentText": true
 		},

@@ -1,10 +1,12 @@
 // @flow
 import React, { Component } from "react";
-import { NavigationActions, addNavigationHelpers, StackNavigator } from "react-navigation";
+import { addNavigationHelpers } from "react-navigation";
 import { Provider, connect } from "react-redux";
-import configureStore from "./app/store/configureStore";
+import configureStore from "./src/store/configureStore";
 import * as Expo from "expo";
-import AppNavigator from "./app/navigation/navigator";
+import AppNavigator from "./src/navigation/navigator";
+import { configureLocale } from "./src/utils";
+import { determineLanguage } from "./src/locale";
 
 const AppWithNavigationState = connect(state => ({
 	nav: state.nav
@@ -13,6 +15,12 @@ const AppWithNavigationState = connect(state => ({
 const Store = configureStore();
 
 export default class App extends Component {
+	static async initLocale() {
+		const language = await determineLanguage();
+
+		configureLocale(language);
+	}
+
 	state = {
 		fontsAreLoaded: false
 	};
