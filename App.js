@@ -1,9 +1,13 @@
 // @flow
 import React, { Component } from "react";
+import { AsyncStorage } from "react-native";
+import * as Expo from "expo";
 import { addNavigationHelpers } from "react-navigation";
 import { Provider, connect } from "react-redux";
+import { persistStore } from "redux-persist";
+import createEncryptor from "redux-persist-transform-encrypt";
+import md5 from "md5";
 import configureStore from "./src/store/configureStore";
-import * as Expo from "expo";
 import AppNavigator from "./src/navigation/navigator";
 import { configureLocale } from "./src/utils";
 import { determineLanguage } from "./src/locale";
@@ -20,10 +24,14 @@ export default class App extends Component {
 
 		configureLocale(language);
 	}
+	constructor() {
+		super();
 
-	state = {
-		fontsAreLoaded: false
-	};
+		this.state = {
+			isReady: false,
+			rehydrated: false
+		};
+	}
 
 	async componentWillMount() {
 		await Expo.Font.loadAsync({
@@ -40,10 +48,20 @@ export default class App extends Component {
 			"rubicon-icon-font": require("./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf")
 		});
 
-		this.setState({ fontsAreLoaded: true });
+		const encryptor = createEncryptor({
+			secretKey: md5(Expo.Constants.deviceId)
+		});
+
+		persistStore(Store, { storage: AsyncStorage, transforms: [encryptor] }, () => {
+			this.setState({ rehydrated: true });
+		});
+
+		this.constructor.initLocale();
+
+		this.setState({ isReady: true });
 	}
 	render() {
-		if (!this.state.fontsAreLoaded) {
+		if (!this.state.isReady || !this.state.rehydrated) {
 			return <Expo.AppLoading />;
 		}
 		return (
