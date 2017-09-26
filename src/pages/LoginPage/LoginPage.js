@@ -6,11 +6,6 @@ import { View, TextInput } from "@shoutem/ui";
 import { Brand, BigButton } from "../../components";
 
 export default class LoginPage extends Component {
-	static navigationOptions = {
-		header: {
-			visible: false
-		}
-	};
 	//TODO: onSubmitEditing повесить focus на TextInput с паролем
 	// когда https://github.com/shoutem/ui/pull/280 попадет в мастер
 	render() {

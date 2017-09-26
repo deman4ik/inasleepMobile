@@ -6,10 +6,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { DreamCard } from "../../components";
 
 export default class FlowPage extends Component {
-	static navigationOptions = ({ navigation }) => ({
-		tabBarIcon: ({ tintColor }) => <Ionicons name="ios-cloudy-night" size={30} color={tintColor} />
-	});
-
 	render() {
 		const { data, navToDreamPage } = this.props;
 		return (

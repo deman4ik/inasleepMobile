@@ -1,9 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
-export default class AddDreamPage extends Component {
+export default class AlarmPage extends Component {
 	render() {
 		return (
 			<View
@@ -14,7 +13,7 @@ export default class AddDreamPage extends Component {
 					backgroundColor: "black"
 				}}
 			>
-				<Text style={{ fontSize: 40, color: "white" }}>Add Dream Page</Text>
+				<Text style={{ fontSize: 40, color: "white" }}>Alarm Page</Text>
 			</View>
 		);
 	}

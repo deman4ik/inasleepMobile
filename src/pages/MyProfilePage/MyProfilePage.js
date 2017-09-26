@@ -4,7 +4,7 @@ import { Button, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { translate } from "../../utils";
 
-export default class ProfilePage extends Component {
+export default class MyProfilePage extends Component {
 	render() {
 		const { navToDreamPage, auth } = this.props;
 		const { language } = auth;

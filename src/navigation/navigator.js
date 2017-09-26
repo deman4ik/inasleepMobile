@@ -1,20 +1,49 @@
 import React from "react";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
+import { Ionicons } from "@expo/vector-icons";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import FlowPage from "../pages/FlowPage";
 import DiaryPage from "../pages/DiaryPage";
 import DreamPage from "../pages/DreamPage";
+import AlarmPage from "../pages/AlarmPage";
 import AddDreamPage from "../pages/AddDreamPage";
 import SearchPage from "../pages/SearchPage";
 import NotificationsPage from "../pages/NotificationsPage";
 import ProfilePage from "../pages/ProfilePage";
+import MyProfilePage from "../pages/MyProfilePage";
 import SettingsPage from "../pages/SettingsPage";
+import { colors } from "../config";
+
+const sharedRoutes = {
+	Profile: {
+		screen: ProfilePage,
+		navigationOptions: ({ navigation }) => ({
+			title: ""
+		})
+	},
+	Dream: {
+		screen: DreamPage,
+		navigationOptions: ({ navigation }) => ({
+			title: ""
+		})
+	}
+};
 
 const AuthNavigator = StackNavigator(
 	{
-		Login: { screen: LoginPage },
-		Register: { screen: RegisterPage }
+		Login: {
+			screen: LoginPage,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Register: {
+			screen: RegisterPage,
+			navigationOptions: {
+				header: null
+			}
+		}
 	},
 	{
 		headerMode: "none"
@@ -23,42 +52,85 @@ const AuthNavigator = StackNavigator(
 
 const FlowNavigator = StackNavigator(
 	{
-		Flow: { screen: FlowPage },
-		Profile: { screen: ProfilePage },
-		Dream: { screen: DreamPage }
+		Flow: {
+			screen: FlowPage,
+			navigationOptions: {
+				header: null
+			}
+		},
+		...sharedRoutes
 	},
 	{
-		mode: "modal",
-		headerMode: "none"
+		headerMode: "screen"
 	}
 );
 const DiaryNavigator = StackNavigator({
 	Diary: { screen: DiaryPage },
-	Profile: { screen: ProfilePage }
+	...sharedRoutes
 });
-const AddDreamNavigator = StackNavigator(
+/*const AlarmNavigator = StackNavigator(
 	{
-		AddDream: { screen: AddDreamPage },
-		Dream: { screen: DreamPage }
+		AlarmPage: { screen: AlarmPage }
 	},
 	{ mode: "modal" }
+);*/
+const NotificationsNavigator = StackNavigator(
+	{
+		Notifications: {
+			screen: NotificationsPage,
+			navigationOptions: {
+				header: null
+			}
+		},
+		...sharedRoutes
+	},
+	{
+		headerMode: "screen"
+	}
 );
-const NotificationsNavigator = StackNavigator({
-	Notifications: { screen: NotificationsPage },
-	Profile: { screen: ProfilePage }
-});
-const ProfileNavigator = StackNavigator({
-	Profile: { screen: ProfilePage },
-	Settings: { screen: SettingsPage }
-});
+const MyProfileNavigator = StackNavigator(
+	{
+		MyProfilePage: { screen: MyProfilePage },
+		Settings: { screen: SettingsPage },
+		...sharedRoutes
+	},
+	{
+		headerMode: "screen"
+	}
+);
 
 const MainNavigator = TabNavigator(
 	{
-		Flow: { screen: FlowNavigator },
-		MyDiary: { screen: DiaryNavigator },
-		Alarm: { screen: AddDreamNavigator },
-		Notifications: { screen: NotificationsNavigator },
-		MyProfile: { screen: ProfileNavigator }
+		Flow: {
+			screen: FlowNavigator,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => <Ionicons name="ios-cloudy-night" size={30} color={tintColor} />
+			}
+		},
+		MyDiary: {
+			screen: DiaryNavigator,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => <Ionicons name="ios-book-outline" size={30} color={tintColor} />
+			}
+		},
+		Alarm: {
+			screen: AlarmPage,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => <Ionicons name="ios-clock-outline" size={30} color={tintColor} />
+			}
+		},
+		Notifications: {
+			screen: NotificationsNavigator,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications-outline" size={30} color={tintColor} />
+			}
+		},
+		MyProfile: {
+			screen: MyProfileNavigator,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => <Ionicons name="ios-person-outline" size={30} color={tintColor} />
+			}
+		}
 	},
 	{
 		headerMode: "screen",
@@ -79,7 +151,8 @@ const MainNavigator = TabNavigator(
 
 		tabBarOptions: {
 			showLabel: false,
-			activeTintColor: "black"
+			activeTintColor: colors.primaryDark,
+			inactiveTintColor: colors.grey
 		}
 	}
 );
@@ -87,11 +160,9 @@ const MainNavigator = TabNavigator(
 const AppNavigator = StackNavigator(
 	{
 		Auth: { screen: AuthNavigator },
-		Main: { screen: MainNavigator },
-		AlarmMode: { screen: AddDreamPage }
+		Main: { screen: MainNavigator }
 	},
 	{
-		mode: "modal",
 		headerMode: "none",
 		initialRouteName: "Main"
 	}

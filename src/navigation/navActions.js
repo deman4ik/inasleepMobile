@@ -47,11 +47,11 @@ export const navToFlowPage = () => {
 	};
 };
 
-export const navToProfilePage = () => {
+/*export const navToProfilePage = () => {
 	return NavigationActions.navigate({
 		routeName: "Profile"
 	});
-};
+};*/
 
 export const navToDreamPage = id => {
 	return NavigationActions.navigate({
