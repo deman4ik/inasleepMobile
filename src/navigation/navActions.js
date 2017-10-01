@@ -53,9 +53,9 @@ export const navToFlowPage = () => {
 	});
 };*/
 
-export const navToDreamPage = id => {
+export const navToDreamPage = dream => {
 	return NavigationActions.navigate({
 		routeName: "Dream",
-		params: { dreamId: id }
+		params: { dream }
 	});
 };

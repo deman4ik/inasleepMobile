@@ -18,15 +18,15 @@ import { colors } from "../config";
 const sharedRoutes = {
 	Profile: {
 		screen: ProfilePage,
-		navigationOptions: ({ navigation }) => ({
-			title: ""
-		})
+		navigationOptions: {
+			header: null
+		}
 	},
 	Dream: {
 		screen: DreamPage,
-		navigationOptions: ({ navigation }) => ({
-			title: ""
-		})
+		navigationOptions: {
+			header: null
+		}
 	}
 };
 
@@ -61,7 +61,7 @@ const FlowNavigator = StackNavigator(
 		...sharedRoutes
 	},
 	{
-		headerMode: "screen"
+		mode: "card"
 	}
 );
 const DiaryNavigator = StackNavigator({

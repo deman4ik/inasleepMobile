@@ -55,19 +55,7 @@ export default class FlowPage extends Component {
 					data={data}
 					style={{ marginTop: 60 }}
 					keyExtractor={(item, index) => item.id}
-					renderItem={({ item }) => (
-						<DreamCard
-							id={item.id}
-							author={item.author}
-							avatar={item.avatar}
-							image={item.image}
-							title={item.title}
-							date={item.date}
-							likesCount={item.likesCount}
-							commentsCount={item.commentsCount}
-							interpetsCount={item.interpetsCount}
-						/>
-					)}
+					renderItem={({ item }) => <DreamCard dream={item} onPress={navToDreamPage} />}
 				/>
 			</Screen>
 		);

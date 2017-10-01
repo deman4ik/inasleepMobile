@@ -24,26 +24,34 @@ function dimensionRelativeToIphone(dimension, actualRefVal = window.width) {
 }
 
 export const DreamCard = props => {
-	const { id, author, avatar, image, title, date, likesCount, commentsCount, interpetsCount, onPress } = props;
+	const { dream, onPress } = props;
 	return (
-		<TouchableHighlight onPress={() => onPress(id)}>
+		<TouchableHighlight
+			style={{
+				borderColor: "transparent",
+				borderRadius: 15,
+				width: window.width - 20,
+				marginHorizontal: 10,
+				marginTop: 3,
+				marginBottom: 27
+			}}
+			onPress={() => onPress(dream)}
+		>
 			<Image
 				styleName="large"
 				source={{
-					uri: image
+					uri: dream.image
 				}}
 				style={{
 					borderColor: "transparent",
 					borderRadius: 15,
-					marginHorizontal: 10,
-					marginVertical: 3,
 					width: window.width - 20
 				}}
 			>
 				<Tile style={{ position: "relative" }}>
 					<View>
 						<Title style={{ color: "white" }} styleName="lg-gutter-top md-gutter-bottom h-center">
-							{title}
+							{dream.title}
 						</Title>
 						<View
 							styleName="horizontal v-center space-between md-gutter-bottom"
@@ -51,21 +59,28 @@ export const DreamCard = props => {
 						>
 							<Button styleName="clear">
 								<Image
-									styleName="small-avatar"
 									source={{
-										uri: avatar
+										uri: dream.avatar
 									}}
-									style={{ marginRight: 10 }}
+									style={{
+										marginRight: 10,
+										borderColor: "white",
+										borderWidth: 0.5,
+										borderRadius: dimensionRelativeToIphone(35) / 2,
+										resizeMode: "cover",
+										width: dimensionRelativeToIphone(35),
+										height: dimensionRelativeToIphone(35)
+									}}
 								/>
 
-								<Text style={{ color: "white" }}>{author}</Text>
+								<Text style={{ color: "white" }}>{dream.author}</Text>
 							</Button>
 							<View styleName="vertical h-end">
 								<Button styleName="clear">
-									<Caption style={{ color: "white" }}>{date}</Caption>
+									<Caption style={{ color: "white" }}>{dream.date}</Caption>
 								</Button>
 								<Button styleName="clear">
-									<Caption style={{ color: "white" }}>Москва, Россия</Caption>
+									<Caption style={{ color: "white" }}>{dream.location}</Caption>
 								</Button>
 							</View>
 						</View>
@@ -77,15 +92,15 @@ export const DreamCard = props => {
 						>
 							<Button styleName="stacked clear">
 								<Icon name="like" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{likesCount}</Text>
+								<Text style={{ color: "white" }}>{dream.likesCount}</Text>
 							</Button>
 							<Button styleName="stacked clear">
 								<Icon name="comment" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{commentsCount}</Text>
+								<Text style={{ color: "white" }}>{dream.commentsCount}</Text>
 							</Button>
 							<Button styleName="stacked clear">
 								<Icon name="about" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{interpetsCount}</Text>
+								<Text style={{ color: "white" }}>{dream.interpetsCount}</Text>
 							</Button>
 						</View>
 					</View>

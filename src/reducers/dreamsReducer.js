@@ -23,6 +23,7 @@ const DEFAULT_STATE = {
       nulla pariatur. Excepteur sint occaecat cupidatat non proident,
       sunt in culpa qui officia deserunt mollit anim id est laborum`,
 			date: "23.08.2017",
+			location: "Москва, Россия",
 			likesCount: 368,
 			commentsCount: 7,
 			interpetsCount: 2
@@ -37,6 +38,7 @@ const DEFAULT_STATE = {
 			title: "Лесное приключение",
 			text: "Кошмарное сновидение сегодня! Очутилась одна в темном лесу, а медведь собирал грибы в лису!",
 			date: "12.07.2017",
+			location: "Москва, Россия",
 			likesCount: 213,
 			commentsCount: 4,
 			interpetsCount: 0
@@ -51,6 +53,7 @@ const DEFAULT_STATE = {
 			title: "Ничего не приснилось",
 			text: "Ничего не приснилось, зато хорошо выспался! Всегда бы так.",
 			date: "02.07.2017",
+			location: "Москва, Россия",
 			likesCount: 6,
 			commentsCount: 0,
 			interpetsCount: 1
@@ -66,6 +69,7 @@ const DEFAULT_STATE = {
 			text:
 				"Осознаюсь в деревне, около дома в котором я провел свое детство. Попробовал взлететь - не получилось. Пришлось идти пешком на речку.",
 			date: "02.07.2017",
+			location: "Москва, Россия",
 			likesCount: 95,
 			commentsCount: 2,
 			interpetsCount: 0
