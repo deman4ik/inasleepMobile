@@ -1,115 +1,133 @@
 // @flow
 import React from "react";
-
-import { Dimensions, TouchableHighlight } from "react-native";
-import {
-	View,
-	Image,
-	Tile,
-	Overlay,
-	Title,
-	Subtitle,
-	Heading,
-	Text,
-	Caption,
-	Button,
-	Icon,
-	Divider
-} from "@shoutem/ui";
-import { getSizeRelativeToReference } from "@shoutem/theme";
+import { StyleSheet, Dimensions, TouchableHighlight, View, Image, Text, TouchableOpacity } from "react-native";
+import { CardTextButton, CardAvatarButton, CardIconButton } from ".";
+import { Ionicons } from "@expo/vector-icons";
+import { dimensionRelativeToIphone, colors } from "../config";
+import { textStyles } from "../styles";
 const window = Dimensions.get("window");
-function dimensionRelativeToIphone(dimension, actualRefVal = window.width) {
-	// 375 is iPhone width
-	return getSizeRelativeToReference(dimension, 375, actualRefVal);
-}
-
+const styles = StyleSheet.create({
+	card: {
+		borderColor: "transparent",
+		borderRadius: 15,
+		width: window.width - 20,
+		marginHorizontal: 10,
+		marginTop: 3,
+		marginBottom: 27
+	},
+	image: {
+		borderColor: "transparent",
+		borderRadius: 15,
+		height: dimensionRelativeToIphone(280, window.width),
+		width: window.width - 20
+	},
+	overlay: {
+		backgroundColor: colors.darkOverlay,
+		flexDirection: "column",
+		alignItems: "stretch",
+		paddingHorizontal: 20,
+		paddingTop: 40,
+		paddingBottom: 40
+	},
+	title: {
+		color: "white",
+		marginBottom: 15,
+		textAlign: "center"
+	},
+	detailContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		paddingBottom: 15
+	},
+	infoContainer: {
+		flexDirection: "column",
+		alignItems: "flex-end"
+	},
+	buttonsContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "stretch",
+		alignSelf: "center",
+		paddingBottom: 15
+	},
+	actionButtonContainer: {
+		position: "absolute",
+		top: 15,
+		right: 15
+	}
+});
 export const DreamCard = props => {
 	const { dream, onPress } = props;
 	return (
-		<TouchableHighlight
-			style={{
-				borderColor: "transparent",
-				borderRadius: 15,
-				width: window.width - 20,
-				marginHorizontal: 10,
-				marginTop: 3,
-				marginBottom: 27
-			}}
-			onPress={() => onPress(dream)}
-		>
+		<TouchableHighlight style={styles.card} onPress={() => onPress(dream)}>
 			<Image
-				styleName="large"
 				source={{
 					uri: dream.image
 				}}
-				style={{
-					borderColor: "transparent",
-					borderRadius: 15,
-					width: window.width - 20
-				}}
+				style={styles.image}
 			>
-				<Tile style={{ position: "relative" }}>
-					<View>
-						<Title style={{ color: "white" }} styleName="lg-gutter-top md-gutter-bottom h-center">
-							{dream.title}
-						</Title>
-						<View
-							styleName="horizontal v-center space-between md-gutter-bottom"
-							style={{ paddingHorizontal: 15 }}
-						>
-							<Button styleName="clear">
-								<Image
-									source={{
-										uri: dream.avatar
-									}}
-									style={{
-										marginRight: 10,
-										borderColor: "white",
-										borderWidth: 0.5,
-										borderRadius: dimensionRelativeToIphone(35) / 2,
-										resizeMode: "cover",
-										width: dimensionRelativeToIphone(35),
-										height: dimensionRelativeToIphone(35)
-									}}
-								/>
-
-								<Text style={{ color: "white" }}>{dream.author}</Text>
-							</Button>
-							<View styleName="vertical h-end">
-								<Button styleName="clear">
-									<Caption style={{ color: "white" }}>{dream.date}</Caption>
-								</Button>
-								<Button styleName="clear">
-									<Caption style={{ color: "white" }}>{dream.location}</Caption>
-								</Button>
-							</View>
-						</View>
-						<View
-							styleName="horizontal "
-							style={{
-								alignSelf: "flex-end"
+				<View style={styles.overlay}>
+					<Text style={[textStyles.title, styles.title]}>{dream.title}</Text>
+					<View style={styles.detailContainer}>
+						<CardAvatarButton
+							src={dream.avatar}
+							text={dream.author.toString()}
+							onPress={() => {
+								null;
 							}}
-						>
-							<Button styleName="stacked clear">
-								<Icon name="like" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{dream.likesCount}</Text>
-							</Button>
-							<Button styleName="stacked clear">
-								<Icon name="comment" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{dream.commentsCount}</Text>
-							</Button>
-							<Button styleName="stacked clear">
-								<Icon name="about" style={{ color: "white" }} />
-								<Text style={{ color: "white" }}>{dream.interpetsCount}</Text>
-							</Button>
+						/>
+
+						<View style={styles.infoContainer}>
+							<CardTextButton
+								text={dream.date}
+								onPress={() => {
+									null;
+								}}
+							/>
+							<CardTextButton
+								text={dream.location}
+								onPress={() => {
+									null;
+								}}
+							/>
 						</View>
 					</View>
-					<View styleName="actions">
-						<Button styleName="tight clear">
-							<Icon name="more-horizontal" style={{ color: "white" }} />
-						</Button>
+					<View style={styles.buttonsContainer}>
+						<CardIconButton
+							icon="ios-heart"
+							text={dream.likesCount.toString()}
+							onPress={() => {
+								null;
+							}}
+						/>
+
+						<CardIconButton
+							icon="ios-chatboxes"
+							text={dream.commentsCount.toString()}
+							onPress={() => {
+								null;
+							}}
+						/>
+
+						<CardIconButton
+							icon="ios-information-circle"
+							text={dream.interpetsCount.toString()}
+							onPress={() => {
+								null;
+							}}
+						/>
 					</View>
-				</Tile>
+				</View>
+				<View style={styles.actionButtonContainer}>
+					<TouchableOpacity
+						onPress={() => {
+							null;
+						}}
+					>
+						<Ionicons name="ios-more" size={24} color="white" />
+					</TouchableOpacity>
+				</View>
 			</Image>
 		</TouchableHighlight>
 	);

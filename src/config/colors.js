@@ -10,5 +10,6 @@ export const colors = {
 	greyMidLight: "#f6f8fa",
 	greyVeryLight: "#fbfbfb",
 	white: "#ffffff",
-	transparent: "transparent"
+	transparent: "transparent",
+	darkOverlay: "rgba(0,0,0,0.2)"
 };

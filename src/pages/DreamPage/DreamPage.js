@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import { Button, Text, View } from "react-native";
-import { ParallaxScroll } from "../../components";
+import { ParallaxScroll, ViewContainer, DreamHeader } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
 import { translate } from "../../utils";
 
@@ -11,32 +11,18 @@ export default class DreamPage extends Component {
 		const { auth, navigation } = this.props;
 		const { language } = auth;
 		return (
-			<View
-				style={{
-					flex: 1,
-					justifyContent: "center",
-					alignItems: "stretch"
-				}}
-			>
+			<ViewContainer barColor={"light"}>
 				<ParallaxScroll
-					renderContent={() => (
-						<View
-							style={{
-								flex: 1,
-								alignItems: "center",
-								justifyContent: "center"
-							}}
-						>
-							<Text style={{ color: "white" }}>{dream.title}</Text>
-						</View>
-					)}
+					renderContent={() => <DreamHeader dream={dream} />}
+					backgroundImage={dream.image}
 					stickyTitle={dream.title}
 					navigateBack
 					navigation={navigation}
+					showMenu
 				>
 					<Text>{dream.text}</Text>
 				</ParallaxScroll>
-			</View>
+			</ViewContainer>
 		);
 	}
 }

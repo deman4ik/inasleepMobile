@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { View, Text, Dimensions, StyleSheet, Platform } from "react-native";
+import { View, Text, Image, Dimensions, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
-import { colors } from "../config";
+import { Ionicons } from "@expo/vector-icons";
+
+import { colors, normalize } from "../config";
 
 const STICKY_HEADER_HEIGHT = 62;
 
 type Props = {
+	backgroundImage: string,
 	renderContent: any,
 	stickyTitle: string,
 	navigateBack?: boolean,
@@ -30,6 +32,9 @@ const styles = StyleSheet.create({
 		width: window.width,
 		backgroundColor: colors.primaryDark
 	},
+	backgroundImage: {
+		width: window.width
+	},
 	stickySection: {
 		height: STICKY_HEADER_HEIGHT,
 		backgroundColor: colors.primaryDark,
@@ -40,17 +45,17 @@ const styles = StyleSheet.create({
 	stickySectionText: {
 		color: colors.white,
 		//...fonts.fontPrimaryBold,
-		//fontSize: normalize(16),
-		fontSize: 16,
+		fontSize: normalize(16),
 		margin: 10
 	},
 	fixedSectionLeft: {
 		position: "absolute",
-		bottom: 0
+		bottom: 0,
+		left: 10
 	},
 	fixedSectionRight: {
 		position: "absolute",
-		bottom: 10,
+		bottom: 0,
 		right: 10
 	}
 });
@@ -89,6 +94,7 @@ export class ParallaxScroll extends Component {
 
 	render() {
 		const {
+			backgroundImage,
 			renderContent,
 			stickyTitle,
 			navigateBack,
@@ -100,17 +106,28 @@ export class ParallaxScroll extends Component {
 			refreshControl
 		} = this.props;
 
+		const renderBackgroundImage = backgroundImage => {
+			if (backgroundImage !== null) {
+				return (
+					<Image
+						source={{
+							uri: backgroundImage
+						}}
+						style={[styles.backgroundImage, { height: this.state.parallaxHeaderHeight }]}
+					/>
+				);
+			} else {
+				return <View style={[styles.background, { height: this.state.parallaxHeaderHeight }]} />;
+			}
+		};
+
 		return (
 			<ParallaxScrollView
-				backgroundColor={colors.primaryDark}
+				backgroundColor={colors.transparent}
 				stickyHeaderHeight={STICKY_HEADER_HEIGHT}
 				parallaxHeaderHeight={this.state.parallaxHeaderHeight}
 				backgroundSpeed={10}
-				renderBackground={() => (
-					<View key="background">
-						<View style={[styles.background, { height: this.state.parallaxHeaderHeight }]} />
-					</View>
-				)}
+				renderBackground={() => <View key="background">{renderBackgroundImage(backgroundImage)}</View>}
 				renderForeground={renderContent}
 				renderStickyHeader={() => (
 					<View key="sticky-header" style={styles.stickySection}>
@@ -121,26 +138,27 @@ export class ParallaxScroll extends Component {
 					<View key="fixed-header">
 						{navigateBack && (
 							<View style={styles.fixedSectionLeft}>
-								<Ionicons
-									style={styles.headerIcon}
-									name="ios-arrow-back"
-									size={42}
-									color={colors.white}
-									onPress={() => navigation.goBack()}
-									underlayColor="transparent"
-								/>
+								<TouchableOpacity onPress={() => navigation.goBack()}>
+									<Ionicons
+										name="ios-arrow-back"
+										size={30}
+										color={colors.white}
+										underlayColor="transparent"
+									/>
+								</TouchableOpacity>
 							</View>
 						)}
 
 						{showMenu && (
 							<View style={styles.fixedSectionRight}>
-								<FontAwesome
-									style={styles.headerIcon}
-									name={menuIcon}
-									onPress={menuAction}
-									color={colors.white}
-									underlayColor="transparent"
-								/>
+								<TouchableOpacity onPress={menuAction}>
+									<Ionicons
+										name={menuIcon}
+										size={30}
+										color={colors.white}
+										underlayColor="transparent"
+									/>
+								</TouchableOpacity>
 							</View>
 						)}
 					</View>
@@ -156,8 +174,9 @@ export class ParallaxScroll extends Component {
 ParallaxScroll.defaultProps = {
 	navigateBack: false,
 	showMenu: false,
-	menuIcon: "ellipsis-h",
+	menuIcon: "ios-more",
 	menuAction: undefined,
 	children: null,
-	refreshControl: null
+	refreshControl: null,
+	backgroundImage: null
 };

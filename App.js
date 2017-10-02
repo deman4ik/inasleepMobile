@@ -48,14 +48,15 @@ export default class App extends Component {
 			"rubicon-icon-font": require("./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf")
 		});
 
-		/*const encryptor = createEncryptor({
+		/* BEGIN - закоменть это чтобы отключить восстановление стора */
+		/*	const encryptor = createEncryptor({
 			secretKey: md5(Expo.Constants.deviceId)
 		});
 
 		persistStore(Store, { storage: AsyncStorage, transforms: [encryptor] }, () => {
 			this.setState({ rehydrated: true });
-		});
-*/
+		});*/
+		/* END - закоменть это чтобы отключить восстановление стора */
 		this.setState({ rehydrated: true });
 		this.constructor.initLocale();
 
