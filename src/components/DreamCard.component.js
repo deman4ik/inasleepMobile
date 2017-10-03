@@ -125,7 +125,7 @@ export const DreamCard = props => {
 							null;
 						}}
 					>
-						<Ionicons name="ios-more" size={24} color="white" />
+						<Ionicons name="ios-more" size={24} color="white" style={{ backgroundColor: "transparent" }} />
 					</TouchableOpacity>
 				</View>
 			</Image>

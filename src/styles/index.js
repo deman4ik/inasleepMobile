@@ -12,6 +12,8 @@ export const textStyles = StyleSheet.create({
 		fontFamily: "Rubik-Regular",
 		fontStyle: "normal",
 		fontWeight: "normal",
-		fontSize: 12
+		fontSize: 12,
+		lineHeight: 16,
+		letterSpacing: 0.5
 	}
 });

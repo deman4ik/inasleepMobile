@@ -48,7 +48,9 @@ const styles = StyleSheet.create({
 	},
 	stickySectionText: {
 		color: colors.white,
-		//...fonts.fontPrimaryBold,
+		fontFamily: "Rubik-Regular",
+		fontStyle: "normal",
+		fontWeight: "normal",
 		fontSize: normalize(16),
 		margin: 10
 	},

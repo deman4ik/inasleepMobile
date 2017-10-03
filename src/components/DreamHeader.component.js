@@ -45,6 +45,7 @@ export const DreamHeader = props => {
 	const { dream } = props;
 	return (
 		<TouchableHighlight
+			underlayColor={colors.darkOverlay}
 			style={styles.container}
 			onPress={() => {
 				null;

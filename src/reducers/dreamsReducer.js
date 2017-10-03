@@ -14,14 +14,7 @@ const DEFAULT_STATE = {
 			image: "https://cdn.dribbble.com/users/288987/screenshots/2220510/in-the-woods_1x.jpg",
 			imageColor: "rgba(23, 12, 46,.9)",
 			title: "Сказочные чудеса",
-			text: `Мне приснился чудесный сон, о бабочках, птичках-синичках и единорогах.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut nim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum`,
+			text: `Мне приснился чудесный сон, о бабочках, птичках-синичках и единорогах. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`,
 			date: "23.08.2017",
 			location: "Москва, Россия",
 			likesCount: 368,
