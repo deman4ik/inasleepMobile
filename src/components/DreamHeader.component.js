@@ -11,16 +11,9 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "stretch"
 	},
-	image: {
-		flexDirection: "row",
-		alignItems: "stretch",
-		width: window.width
-	},
 	overlay: {
 		justifyContent: "space-between",
 		width: window.width,
-		backgroundColor: colors.darkOverlay,
-
 		paddingHorizontal: 20,
 		paddingTop: 60,
 		paddingBottom: 20
@@ -57,12 +50,6 @@ export const DreamHeader = props => {
 				null;
 			}}
 		>
-			{/*	<Image
-				source={{
-					uri: dream.image
-				}}
-				style={styles.image}
-			>*/}
 			<View style={styles.overlay}>
 				<Text style={[textStyles.title, styles.title]}>{dream.title}</Text>
 				<View style={styles.detailContainer}>
@@ -115,7 +102,6 @@ export const DreamHeader = props => {
 					/>
 				</View>
 			</View>
-			{/*	</Image>*/}
 		</TouchableHighlight>
 	);
 };

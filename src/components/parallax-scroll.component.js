@@ -35,6 +35,10 @@ const styles = StyleSheet.create({
 	backgroundImage: {
 		width: window.width
 	},
+	backgroundImageOverlay: {
+		width: window.width,
+		backgroundColor: colors.darkOverlay
+	},
 	stickySection: {
 		height: STICKY_HEADER_HEIGHT,
 		backgroundColor: colors.primaryDark,
@@ -114,7 +118,9 @@ export class ParallaxScroll extends Component {
 							uri: backgroundImage
 						}}
 						style={[styles.backgroundImage, { height: this.state.parallaxHeaderHeight }]}
-					/>
+					>
+						<View style={[styles.backgroundImageOverlay, { height: this.state.parallaxHeaderHeight }]} />
+					</Image>
 				);
 			} else {
 				return <View style={[styles.background, { height: this.state.parallaxHeaderHeight }]} />;
