@@ -3,6 +3,7 @@ export * from "./CardTextButton.component";
 export * from "./CardIconButton.component";
 export * from "./CardAvatarButton.component";
 export * from "./Brand.component";
+export * from "./Divider.component";
 export * from "./DreamCard.component";
 export * from "./DreamHeader.component";
 export * from "./ReadMore.component";

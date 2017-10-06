@@ -42,7 +42,7 @@ export const CardAvatarButton = props => {
 				style={[styles.image, { borderColor: color }]}
 			/>
 
-			<Text style={[textStyles.text, styles.text, { color: color }]}>{text}</Text>
+			<Text style={[textStyles.caption, styles.text, { color: color }]}>{text}</Text>
 		</TouchableOpacity>
 	);
 };

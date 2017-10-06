@@ -7,7 +7,7 @@ import { LinearGradient } from "expo";
 const window = Dimensions.get("window");
 const styles = StyleSheet.create({
 	text: {
-		paddingTop: 15,
+		paddingVertical: 15,
 		color: colors.primaryDark,
 		paddingHorizontal: 10
 	},
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.white
 	},
 	buttonText: {
-		color: colors.black,
-
+		color: colors.greyDarker,
+		top: 5,
 		fontSize: 14
 	}
 });
@@ -54,7 +54,7 @@ export class ReadMore extends React.Component {
 		let { numberOfLines } = this.props;
 
 		return (
-			<View>
+			<View style={{ flex: 1, justifyContent: "flex-end" }}>
 				<Text
 					numberOfLines={measured && !showAllText ? numberOfLines : 0}
 					ref={text => {
@@ -64,13 +64,8 @@ export class ReadMore extends React.Component {
 				>
 					{this.props.children}
 				</Text>
-				<View
-					style={{
-						alignItems: "stretch"
-					}}
-				>
-					{this._maybeRenderReadMore()}
-				</View>
+
+				{this._maybeRenderReadMore()}
 			</View>
 		);
 	}

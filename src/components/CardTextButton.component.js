@@ -8,7 +8,7 @@ export const CardTextButton = props => {
 	const { onPress, text, icon, iconSize, color } = props;
 	return (
 		<TouchableOpacity onPress={onPress}>
-			<Text style={[textStyles.text, { color: color }]}>{text}</Text>
+			<Text style={[textStyles.caption, { color: color }]}>{text}</Text>
 		</TouchableOpacity>
 	);
 };

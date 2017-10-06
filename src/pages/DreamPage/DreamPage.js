@@ -1,11 +1,12 @@
 // @flow
 import React, { Component } from "react";
-import { StyleSheet, Button, Text, View } from "react-native";
-import { ParallaxScroll, ViewContainer, DreamHeader, ReadMore } from "../../components";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Button } from "react-native";
+import { ParallaxScroll, ViewContainer, DreamHeader, ReadMore, Divider } from "../../components";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { translate } from "../../utils";
 import { colors } from "../../config";
-
+import { textStyles } from "../../styles";
+import { Row, Icon, Text, Image, View, Subtitle, Caption, TextInput } from "@shoutem/ui";
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.greyLight,
@@ -13,6 +14,15 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		backgroundColor: colors.white
+	},
+	detailContainer: {
+		backgroundColor: colors.white
+	},
+	rowIcon: {
+		color: "#222222",
+		textAlign: "center",
+		textAlignVertical: "center",
+		marginRight: 15
 	}
 });
 export default class DreamPage extends Component {
@@ -35,6 +45,129 @@ export default class DreamPage extends Component {
 							<ReadMore numberOfLines={5} showHide={false}>
 								{dream.text}
 							</ReadMore>
+						</View>
+						<Divider textLeft="ДЕТАЛИ" />
+
+						<View style={styles.detailContainer}>
+							<Row styleName="small">
+								<MaterialCommunityIcons size={22} name="puzzle" style={styles.rowIcon} />
+								<View style={{ flexDirection: "row" }}>
+									<Text
+										style={{
+											paddingVertical: 5,
+											marginRight: 10,
+											backgroundColor: "#F2F2F2",
+											color: "black",
+											paddingHorizontal: 5
+										}}
+									>
+										Лошадь
+									</Text>
+									<Text
+										style={{
+											paddingVertical: 5,
+											marginRight: 10,
+											backgroundColor: "#F2F2F2",
+											color: "black",
+											paddingHorizontal: 5
+										}}
+									>
+										Дерево
+									</Text>
+									<Text
+										style={{
+											paddingVertical: 5,
+											marginRight: 10,
+											backgroundColor: "#F2F2F2",
+											color: "black",
+											paddingHorizontal: 5
+										}}
+									>
+										Летать
+									</Text>
+								</View>
+								<Icon styleName="disclosure" name="right-arrow" />
+							</Row>
+							<Row styleName="small">
+								<Ionicons size={22} name="ios-information-circle" style={styles.rowIcon} />
+								<Text>{`${dream.interpetsCount} интерпретации`}</Text>
+								<Icon styleName="disclosure" name="right-arrow" />
+							</Row>
+
+							<Row styleName="small">
+								<Ionicons size={22} name="ios-person-add-outline" style={styles.rowIcon} />
+								<Text>{`Отметить, кто приснился`}</Text>
+								<Icon styleName="disclosure" name="right-arrow" />
+							</Row>
+							<Row styleName="small">
+								<Ionicons size={22} name="ios-people-outline" style={styles.rowIcon} />
+								<Text>{`Виден всем`}</Text>
+								<Icon styleName="disclosure" name="right-arrow" />
+							</Row>
+							<Row styleName="small">
+								<Ionicons size={22} name="ios-globe-outline" style={styles.rowIcon} />
+								<Text>{dream.location}</Text>
+								<Icon styleName="disclosure" name="right-arrow" />
+							</Row>
+						</View>
+
+						<Divider textLeft="КОММЕНТАРИИ" />
+						<View style={styles.detailContainer}>
+							<Row>
+								<Image
+									styleName="small-avatar top"
+									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-11.png" }}
+								/>
+								<View styleName="vertical">
+									<View styleName="horizontal space-between">
+										<Subtitle>Dustin</Subtitle>
+										<Caption>20 минут назад</Caption>
+									</View>
+									<Text styleName="multiline">
+										Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever
+										street art fap. Hashtag typewriter banh mi, squid keffiyeh High.
+									</Text>
+								</View>
+							</Row>
+
+							<Row>
+								<Image
+									styleName="small-avatar top"
+									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-12.png" }}
+								/>
+								<View styleName="vertical">
+									<View styleName="horizontal space-between">
+										<Subtitle>Dustin Malone</Subtitle>
+										<Caption>30 минут назад</Caption>
+									</View>
+									<Text styleName="multiline">
+										High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter
+										banh mi, squid keffiyeh High. Иanjo tote bag bicycle rights.
+									</Text>
+								</View>
+							</Row>
+
+							<Row>
+								<Image
+									styleName="small-avatar top"
+									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-10.png" }}
+								/>
+								<View styleName="vertical">
+									<View styleName="horizontal space-between">
+										<Subtitle>Malone</Subtitle>
+										<Caption>40 минут назад</Caption>
+									</View>
+									<Text styleName="multiline">Тоже самое снилось, к чему бы это?</Text>
+								</View>
+							</Row>
+
+							<Text style={{ alignSelf: "center", marginHorizontal: 10 }}>
+								Посмотреть все комментарии (7)
+							</Text>
+							<Row>
+								<Ionicons size={22} name="ios-chatboxes" style={styles.rowIcon} />
+								<TextInput placeholder={"Добавить комментарий"} />
+							</Row>
 						</View>
 					</View>
 				</ParallaxScroll>

@@ -29,7 +29,7 @@ export const CardIconButton = props => {
 	return (
 		<TouchableOpacity style={styles.button} onPress={onPress}>
 			<Ionicons name={icon} size={iconSize} color={color} style={styles.icon} />
-			<Text style={[textStyles.text, styles.text, { color: color }]}>{text}</Text>
+			<Text style={[textStyles.caption, styles.text, { color: color }]}>{text}</Text>
 		</TouchableOpacity>
 	);
 };
