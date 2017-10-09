@@ -7,5 +7,6 @@ export * from "./Divider.component";
 export * from "./DreamCard.component";
 export * from "./DreamHeader.component";
 export * from "./ReadMore.component";
+export * from "./Row.component";
 export * from "./Parallax-scroll.component";
 export * from "./ViewContainer.component";

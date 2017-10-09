@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import { StyleSheet, Button } from "react-native";
-import { ParallaxScroll, ViewContainer, DreamHeader, ReadMore, Divider } from "../../components";
+import { ParallaxScroll, ViewContainer, DreamHeader, ReadMore, Divider, IconTextRow } from "../../components";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { translate } from "../../utils";
 import { colors } from "../../config";
@@ -88,27 +88,39 @@ export default class DreamPage extends Component {
 								</View>
 								<Icon styleName="disclosure" name="right-arrow" />
 							</Row>
-							<Row styleName="small">
-								<Ionicons size={22} name="ios-information-circle" style={styles.rowIcon} />
-								<Text>{`${dream.interpetsCount} интерпретации`}</Text>
-								<Icon styleName="disclosure" name="right-arrow" />
-							</Row>
 
-							<Row styleName="small">
-								<Ionicons size={22} name="ios-person-add-outline" style={styles.rowIcon} />
-								<Text>{`Отметить, кто приснился`}</Text>
-								<Icon styleName="disclosure" name="right-arrow" />
-							</Row>
-							<Row styleName="small">
-								<Ionicons size={22} name="ios-people-outline" style={styles.rowIcon} />
-								<Text>{`Виден всем`}</Text>
-								<Icon styleName="disclosure" name="right-arrow" />
-							</Row>
-							<Row styleName="small">
-								<Ionicons size={22} name="ios-globe-outline" style={styles.rowIcon} />
-								<Text>{dream.location}</Text>
-								<Icon styleName="disclosure" name="right-arrow" />
-							</Row>
+							<IconTextRow
+								icon="ios-information-circle"
+								text={`${dream.interpetsCount} интерпретации`}
+								iconRight="ios-arrow-forward-outline"
+								onPress={() => {
+									return null;
+								}}
+							/>
+
+							<IconTextRow
+								icon="ios-person-add-outline"
+								text="Никто не приснился"
+								onPress={() => {
+									return null;
+								}}
+							/>
+
+							<IconTextRow
+								icon="ios-people"
+								text="Виден всем"
+								onPress={() => {
+									return null;
+								}}
+							/>
+
+							<IconTextRow
+								icon="ios-globe-outline"
+								text={dream.location}
+								onPress={() => {
+									return null;
+								}}
+							/>
 						</View>
 
 						<Divider textLeft="КОММЕНТАРИИ" />
