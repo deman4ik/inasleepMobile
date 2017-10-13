@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
 	}
 });
 export const IconTextRow = props => {
-	const { icon, iconRight, text, onPress } = props;
+	const { icon, iconRight, text, onPress, disabled } = props;
 	return (
-		<TouchableOpacity style={styles.container} onPress={onPress}>
+		<TouchableOpacity style={styles.container} onPress={onPress} disabled={disabled}>
 			{icon !== null && <Ionicons size={22} name={icon} style={styles.icon} />}
 			{text !== null && <Text style={[textStyles.text, styles.text]}>{text}</Text>}
 			{iconRight !== null && <Ionicons size={20} name={iconRight} style={styles.rightIcon} />}
@@ -47,12 +47,15 @@ export const IconTextRow = props => {
 IconTextRow.defaultProps = {
 	icon: null,
 	iconRight: null,
-	text: null
+	text: null,
+	disabled: false,
+	onPress: null
 };
 
 IconTextRow.propTypes = {
 	icon: PropTypes.string,
 	iconRight: PropTypes.string,
 	text: PropTypes.string,
-	onPress: PropTypes.func.isRequired
+	disabled: PropTypes.bool,
+	onPress: PropTypes.func
 };

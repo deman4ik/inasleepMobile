@@ -98,29 +98,11 @@ export default class DreamPage extends Component {
 								}}
 							/>
 
-							<IconTextRow
-								icon="ios-person-add-outline"
-								text="Никто не приснился"
-								onPress={() => {
-									return null;
-								}}
-							/>
+							<IconTextRow icon="ios-person-add-outline" text="Никто не приснился" disabled />
 
-							<IconTextRow
-								icon="ios-people"
-								text="Виден всем"
-								onPress={() => {
-									return null;
-								}}
-							/>
+							<IconTextRow icon="ios-people" text="Виден всем" disabled />
 
-							<IconTextRow
-								icon="ios-globe-outline"
-								text={dream.location}
-								onPress={() => {
-									return null;
-								}}
-							/>
+							<IconTextRow icon="ios-globe-outline" text={dream.location} disabled />
 						</View>
 
 						<Divider textLeft="КОММЕНТАРИИ" />
