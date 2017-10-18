@@ -1,7 +1,16 @@
 // @flow
 import React, { Component } from "react";
 import { StyleSheet, Button } from "react-native";
-import { ParallaxScroll, ViewContainer, DreamHeader, ReadMore, Divider, IconTextRow } from "../../components";
+import {
+	ParallaxScroll,
+	ViewContainer,
+	DreamHeader,
+	ReadMore,
+	Divider,
+	IconTextRow,
+	Comment,
+	ShowMoreContentRow
+} from "../../components";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { translate } from "../../utils";
 import { colors } from "../../config";
@@ -107,57 +116,45 @@ export default class DreamPage extends Component {
 
 						<Divider textLeft="КОММЕНТАРИИ" />
 						<View style={styles.detailContainer}>
-							<Row>
-								<Image
-									styleName="small-avatar top"
-									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-11.png" }}
-								/>
-								<View styleName="vertical">
-									<View styleName="horizontal space-between">
-										<Subtitle>Dustin</Subtitle>
-										<Caption>20 минут назад</Caption>
-									</View>
-									<Text styleName="multiline">
-										Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever
-										street art fap. Hashtag typewriter banh mi, squid keffiyeh High.
-									</Text>
-								</View>
-							</Row>
+							<Comment
+								avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-11.png"
+								author="Dustin"
+								date="20 минут назад"
+								text={
+									"Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High."
+								}
+								onAuthorPress={() => {
+									return null;
+								}}
+							/>
+							<Comment
+								avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-12.png"
+								author="Malone"
+								date="30 минут назад"
+								text={
+									"Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High."
+								}
+								onAuthorPress={() => {
+									return null;
+								}}
+							/>
+							<Comment
+								avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-12.png"
+								author="Malone"
+								date="30 минут назад"
+								text={"Тоже самое снилось, к чему бы это?"}
+								onAuthorPress={() => {
+									return null;
+								}}
+							/>
 
-							<Row>
-								<Image
-									styleName="small-avatar top"
-									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-12.png" }}
-								/>
-								<View styleName="vertical">
-									<View styleName="horizontal space-between">
-										<Subtitle>Dustin Malone</Subtitle>
-										<Caption>30 минут назад</Caption>
-									</View>
-									<Text styleName="multiline">
-										High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter
-										banh mi, squid keffiyeh High. Иanjo tote bag bicycle rights.
-									</Text>
-								</View>
-							</Row>
-
-							<Row>
-								<Image
-									styleName="small-avatar top"
-									source={{ uri: "https://shoutem.github.io/img/ui-toolkit/examples/image-10.png" }}
-								/>
-								<View styleName="vertical">
-									<View styleName="horizontal space-between">
-										<Subtitle>Malone</Subtitle>
-										<Caption>40 минут назад</Caption>
-									</View>
-									<Text styleName="multiline">Тоже самое снилось, к чему бы это?</Text>
-								</View>
-							</Row>
-
-							<Text style={{ alignSelf: "center", marginHorizontal: 10 }}>
-								Посмотреть все комментарии (7)
-							</Text>
+							<ShowMoreContentRow
+								text="Посмотреть все комментарии"
+								count={7}
+								onPress={() => {
+									return null;
+								}}
+							/>
 							<Row>
 								<Ionicons size={22} name="ios-chatboxes" style={styles.rowIcon} />
 								<TextInput placeholder={"Добавить комментарий"} />

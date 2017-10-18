@@ -9,6 +9,14 @@ export const textStyles = StyleSheet.create({
 		fontSize: 20,
 		lineHeight: 25
 	},
+	subtitle: {
+		fontFamily: "Rubik-Regular",
+		fontStyle: "normal",
+		fontWeight: "normal",
+		color: "#222222",
+		fontSize: 15,
+		lineHeight: 18
+	},
 	text: {
 		fontFamily: "Rubik-Regular",
 		fontStyle: "normal",
