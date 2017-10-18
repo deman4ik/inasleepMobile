@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, Dimensions, TouchableHighlight, View, Image, Text, TouchableOpacity } from "react-native";
 import { CardTextButton, CardAvatarButton, CardIconButton } from ".";
 import { Ionicons } from "@expo/vector-icons";
-import { dimensionRelativeToIphone, colors } from "../config";
+import { dimensionRelativeToIphone, colors, normalize } from "../config";
 import { textStyles } from "../styles";
 const window = Dimensions.get("window");
 const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: "transparent",
     borderRadius: 15,
-    height: dimensionRelativeToIphone(280, window.width),
+    height: normalize(280),
     width: window.width - 20
   },
   overlay: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 20,
     paddingTop: 40,
-    paddingBottom: 40
+    paddingBottom: 20
   },
   title: {
     color: "white",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "stretch",
     alignSelf: "center",
-    paddingBottom: 15
+    paddingBottom: 5
   },
   actionButtonContainer: {
     position: "absolute",
@@ -127,7 +127,7 @@ export const DreamCard = props => {
               null;
             }}
           >
-            <Ionicons name="ios-more" size={24} color="white" style={{ backgroundColor: "transparent" }} />
+            <Ionicons name="ios-more" size={normalize(24)} color="white" style={{ backgroundColor: "transparent" }} />
           </TouchableOpacity>
         </View>
       </Image>

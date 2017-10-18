@@ -147,7 +147,12 @@ export class ParallaxScroll extends Component {
             {navigateBack && (
               <View style={styles.fixedSectionLeft}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                  <Ionicons name="ios-arrow-back" size={30} color={colors.white} underlayColor="transparent" />
+                  <Ionicons
+                    name="ios-arrow-back"
+                    size={normalize(30)}
+                    color={colors.white}
+                    underlayColor="transparent"
+                  />
                 </TouchableOpacity>
               </View>
             )}
@@ -155,7 +160,7 @@ export class ParallaxScroll extends Component {
             {showMenu && (
               <View style={styles.fixedSectionRight}>
                 <TouchableOpacity onPress={menuAction}>
-                  <Ionicons name={menuIcon} size={30} color={colors.white} underlayColor="transparent" />
+                  <Ionicons name={menuIcon} size={normalize(30)} color={colors.white} underlayColor="transparent" />
                 </TouchableOpacity>
               </View>
             )}

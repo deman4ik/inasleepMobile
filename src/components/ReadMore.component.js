@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions, TouchableHighlight } from "react-native";
 import { textStyles } from "../styles";
-import { colors } from "../config";
+import { colors, normalize } from "../config";
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo";
 const window = Dimensions.get("window");
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.greyDarker,
     top: 5,
-    fontSize: 14
+    fontSize: normalize(14)
   }
 });
 
