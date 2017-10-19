@@ -9,6 +9,7 @@ export * from "./DreamCard.component";
 export * from "./DreamHeader.component";
 export * from "./ReadMore.component";
 export * from "./Row.component";
+export * from "./TagsRow.component";
 export * from "./ParallaxScroll.component";
 export * from "./ShowMoreContentRow.component";
 export * from "./ViewContainer.component";
