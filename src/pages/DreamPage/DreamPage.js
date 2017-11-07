@@ -11,6 +11,7 @@ import {
     IconTextRow,
     TagsRow,
     Comment,
+    CommentsBlock,
     ShowMoreContentRow
 } from "../../components";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -76,58 +77,13 @@ export default class DreamPage extends Component {
                         </View>
 
                         <Divider textLeft="КОММЕНТАРИИ" />
-                        <View style={styles.detailContainer}>
-                            <Comment
-                                avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-11.png"
-                                author="Dustin"
-                                date="20 минут назад"
-                                text={
-                                    "Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High."
-                                }
-                                onAuthorPress={() => {
-                                    return null;
-                                }}
-                            />
-                            <LineDivider />
-                            <Comment
-                                avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-12.png"
-                                author="Malone"
-                                date="30 минут назад"
-                                text={
-                                    "Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High."
-                                }
-                                onAuthorPress={() => {
-                                    return null;
-                                }}
-                            />
-                            <LineDivider />
-                            <Comment
-                                avatar="https://shoutem.github.io/img/ui-toolkit/examples/image-12.png"
-                                author="Malone"
-                                date="30 минут назад"
-                                text={"Тоже самое снилось, к чему бы это?"}
-                                onAuthorPress={() => {
-                                    return null;
-                                }}
-                            />
-
-                            <ShowMoreContentRow
-                                text="Посмотреть все комментарии"
-                                count={7}
-                                onPress={() => {
-                                    return null;
-                                }}
-                            />
-
-                            <IconTextRow
-                                size={22}
-                                icon="ios-chatboxes"
-                                text="Добавить комментарий"
-                                onPress={() => {
-                                    return null;
-                                }}
-                            />
-                        </View>
+                        <CommentsBlock
+                            comments={dream.comments}
+                            quantity={2}
+                            onShowMoreContent={() => null}
+                            onAuthorPress={() => null}
+                            onAddComment={() => null}
+                        />
                     </View>
                 </ParallaxScroll>
             </ViewContainer>
