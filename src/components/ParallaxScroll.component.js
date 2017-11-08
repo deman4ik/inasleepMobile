@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { View, Text, Image, Dimensions, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
-
+import { HeaderLeft, HeaderRight, HeaderTitle } from "components";
+import { HEADER_HEIGHT } from "constants";
 import { Ionicons } from "@expo/vector-icons";
 
-import { colors, normalize } from "../config";
-
-const STICKY_HEADER_HEIGHT = 62;
+import { colors } from "styles";
+import { normalize } from "utils";
 
 type Props = {
   backgroundImage: string,
@@ -38,31 +38,6 @@ const styles = StyleSheet.create({
   backgroundImageOverlay: {
     width: window.width,
     backgroundColor: colors.darkOverlay
-  },
-  stickySection: {
-    height: STICKY_HEADER_HEIGHT,
-    backgroundColor: colors.primaryDark,
-    width: window.width,
-    alignItems: "center",
-    justifyContent: "flex-end"
-  },
-  stickySectionText: {
-    color: colors.white,
-    fontFamily: "Rubik-Regular",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: normalize(16),
-    margin: 10
-  },
-  fixedSectionLeft: {
-    position: "absolute",
-    bottom: 0,
-    left: 10
-  },
-  fixedSectionRight: {
-    position: "absolute",
-    bottom: 0,
-    right: 10
   }
 });
 
@@ -132,38 +107,17 @@ export class ParallaxScroll extends Component {
     return (
       <ParallaxScrollView
         backgroundColor={colors.transparent}
-        stickyHeaderHeight={STICKY_HEADER_HEIGHT}
+        stickyHeaderHeight={HEADER_HEIGHT}
         parallaxHeaderHeight={this.state.parallaxHeaderHeight}
         backgroundSpeed={10}
         renderBackground={() => <View key="background">{renderBackgroundImage(backgroundImage)}</View>}
         renderForeground={renderContent}
-        renderStickyHeader={() => (
-          <View key="sticky-header" style={styles.stickySection}>
-            <Text style={styles.stickySectionText}>{stickyTitle}</Text>
-          </View>
-        )}
+        renderStickyHeader={() => <HeaderTitle key="sticky-header" text={stickyTitle} />}
         renderFixedHeader={() => (
           <View key="fixed-header">
-            {navigateBack && (
-              <View style={styles.fixedSectionLeft}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                  <Ionicons
-                    name="ios-arrow-back"
-                    size={normalize(30)}
-                    color={colors.white}
-                    underlayColor="transparent"
-                  />
-                </TouchableOpacity>
-              </View>
-            )}
+            {navigateBack && <HeaderLeft icon="ios-arrow-back" onPress={() => navigation.goBack()} />}
 
-            {showMenu && (
-              <View style={styles.fixedSectionRight}>
-                <TouchableOpacity onPress={menuAction}>
-                  <Ionicons name={menuIcon} size={normalize(30)} color={colors.white} underlayColor="transparent" />
-                </TouchableOpacity>
-              </View>
-            )}
+            {showMenu && <HeaderRight icon={menuIcon} onPress={menuAction} />}
           </View>
         )}
         refreshControl={refreshControl}

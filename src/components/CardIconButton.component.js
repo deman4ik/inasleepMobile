@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, Dimensions, TouchableOpacity, Text } from "react-native";
 import PropTypes from "prop-types";
 import { Ionicons } from "@expo/vector-icons";
-import { dimensionRelativeToIphone, colors, normalize } from "../config";
-import { textStyles } from "../styles";
+import { dimensionRelativeToIphone, normalize } from "utils";
+import { textStyles, colors } from "styles";
 const window = Dimensions.get("window");
 const styles = StyleSheet.create({
   button: {

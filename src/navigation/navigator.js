@@ -1,19 +1,20 @@
 import React from "react";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import { Ionicons } from "@expo/vector-icons";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import FlowPage from "../pages/FlowPage";
-import DiaryPage from "../pages/DiaryPage";
-import DreamPage from "../pages/DreamPage";
-import AlarmPage from "../pages/AlarmPage";
-import AddDreamPage from "../pages/AddDreamPage";
-import SearchPage from "../pages/SearchPage";
-import NotificationsPage from "../pages/NotificationsPage";
-import ProfilePage from "../pages/ProfilePage";
-import MyProfilePage from "../pages/MyProfilePage";
-import SettingsPage from "../pages/SettingsPage";
-import { colors } from "../config";
+import LoginPage from "pages/LoginPage";
+import RegisterPage from "pages/RegisterPage";
+import FlowPage from "pages/FlowPage";
+import DiaryPage from "pages/DiaryPage";
+import DreamPage from "pages/DreamPage";
+import CommentsPage from "pages/CommentsPage";
+import AlarmPage from "pages/AlarmPage";
+import AddDreamPage from "pages/AddDreamPage";
+import SearchPage from "pages/SearchPage";
+import NotificationsPage from "pages/NotificationsPage";
+import ProfilePage from "pages/ProfilePage";
+import MyProfilePage from "pages/MyProfilePage";
+import SettingsPage from "pages/SettingsPage";
+import { colors } from "styles";
 
 const sharedRoutes = {
   Profile: {
@@ -24,6 +25,12 @@ const sharedRoutes = {
   },
   Dream: {
     screen: DreamPage,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Comments: {
+    screen: CommentsPage,
     navigationOptions: {
       header: null
     }

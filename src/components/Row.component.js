@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, Dimensions, TouchableOpacity, Text } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { colors, normalize } from "../config";
-import { textStyles } from "../styles";
+import { normalize } from "utils";
+import { textStyles, colors } from "styles";
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,

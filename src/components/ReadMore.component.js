@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions, TouchableHighlight } from "react-native";
-import { textStyles } from "../styles";
-import { colors, normalize } from "../config";
+import { textStyles, colors } from "styles";
+import { normalize } from "utils";
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo";
 const window = Dimensions.get("window");

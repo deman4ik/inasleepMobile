@@ -3,7 +3,7 @@
 import SearchPage from "./SearchPage";
 import { connect } from "react-redux";
 import * as actions from "./actions"; // mapDispatchToProps
-import { getAuth } from "../../reducers/rootReducer";
+import { getAuth } from "reducers/rootReducer";
 
 const mapStateToProps = state => ({
   ...getAuth(state)

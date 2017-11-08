@@ -3,8 +3,8 @@ import React from "react";
 import { StyleSheet, Dimensions, TouchableHighlight, View, Image, Text, TouchableOpacity } from "react-native";
 import { CardTextButton, CardAvatarButton, CardIconButton } from ".";
 import { Ionicons } from "@expo/vector-icons";
-import { dimensionRelativeToIphone, colors, normalize } from "../config";
-import { textStyles } from "../styles";
+import { dimensionRelativeToIphone, normalize } from "utils";
+import { textStyles, colors } from "styles";
 const window = Dimensions.get("window");
 const styles = StyleSheet.create({
   card: {

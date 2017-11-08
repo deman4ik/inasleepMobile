@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { colors, normalize } from "../config";
+import { colors } from "./colors";
+import { normalize } from "utils";
 export const textStyles = StyleSheet.create({
   title: {
     fontFamily: "Rubik-Regular",

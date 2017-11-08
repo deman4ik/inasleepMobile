@@ -1,13 +1,13 @@
 // @flow weak
-import * as actionTypes from "../actionTypes";
+import * as actionTypes from "constants/actionTypes";
 
 const DEFAULT_STATE = {};
 
 export default function(state = DEFAULT_STATE, action) {
-	switch (action.type) {
-		default:
-			return state;
-	}
+  switch (action.type) {
+    default:
+      return state;
+  }
 }
 
 // Selectors (mapStateToProps)

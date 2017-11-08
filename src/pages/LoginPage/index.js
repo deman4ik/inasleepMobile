@@ -3,11 +3,8 @@
 import LoginPage from "./LoginPage";
 import { connect } from "react-redux";
 import * as actions from "./actions"; // mapDispatchToProps
-import {
-  navToRegisterPage,
-  navToRemindPassPage
-} from "../../navigation/navActions";
-import { getLoginPage, getNav } from "../../reducers/rootReducer";
+import { navToRegisterPage, navToRemindPassPage } from "navigation/navActions";
+import { getLoginPage, getNav } from "reducers/rootReducer";
 
 const mapStateToProps = state => ({
   ...getLoginPage(state),
