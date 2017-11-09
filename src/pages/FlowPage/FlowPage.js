@@ -1,8 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { FlatList, StatusBar, Text, Button, Image, Platform, TextInput, TouchableHighlight } from "react-native";
-import { View, Title, NavigationBar, Icon } from "@shoutem/ui";
-import { Ionicons } from "@expo/vector-icons";
+import { FlatList } from "react-native";
 import { DreamCard, ViewContainer, Header, HeaderTitle } from "components";
 
 export default class FlowPage extends Component {
