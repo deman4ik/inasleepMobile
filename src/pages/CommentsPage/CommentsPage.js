@@ -9,7 +9,7 @@ const styles = StyleSheet.create({});
 
 export default class CommentsPage extends Component {
     render() {
-        const { comments } = this.props.navigation.state.params;
+        const { comments, focus } = this.props.navigation.state.params;
         const { auth, navigation } = this.props;
         const { language } = auth;
         return (
@@ -31,6 +31,7 @@ export default class CommentsPage extends Component {
                         return null;
                     }}
                     dreamId={"1"}
+                    focus={focus}
                 />
             </ViewContainer>
         );

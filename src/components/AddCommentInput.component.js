@@ -39,10 +39,15 @@ const styles = StyleSheet.create({
 export class AddCommentInput extends Component {
     constructor(props) {
         super(props);
+
         this.state = { text: "" };
     }
+    componentDidMount() {
+        if (this.props.focus) this.textInput.focus();
+    }
     render() {
-        const { avatar, placeholder, onSend, dreamId } = this.props;
+        const { avatar, placeholder, onSend, dreamId, focus } = this.props;
+
         return (
             <KeyboardAvoidingView behavior={"position"}>
                 <LineDivider />
@@ -50,6 +55,9 @@ export class AddCommentInput extends Component {
                     <Image style={styles.avatar} source={{ uri: avatar }} />
 
                     <TextInput
+                        ref={e => {
+                            this.textInput = e;
+                        }}
                         placeholder={placeholder}
                         onChangeText={text => this.setState({ text })}
                         value={this.state.text}

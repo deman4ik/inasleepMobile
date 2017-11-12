@@ -37,7 +37,7 @@ export const CommentsBlock = props => {
                     text="Посмотреть все комментарии"
                     count={moreCount}
                     onPress={() => {
-                        onShowMoreContent(comments);
+                        onShowMoreContent(comments, false);
                     }}
                 />
             )}
@@ -47,7 +47,7 @@ export const CommentsBlock = props => {
                 icon="ios-chatboxes"
                 text="Добавить комментарий"
                 onPress={() => {
-                    onAddComment(comments);
+                    onAddComment(comments, true);
                 }}
             />
         </View>

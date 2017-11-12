@@ -7,44 +7,44 @@ https://github.com/react-community/react-navigation/issues/395
 https://github.com/react-community/react-navigation/issues/199
 */
 export const navToMainPage = () => {
-  return NavigationActions.reset({
-    index: 0,
-    key: null,
-    actions: [
-      NavigationActions.navigate({
-        routeName: "Main"
-      })
-    ]
-  });
+    return NavigationActions.reset({
+        index: 0,
+        key: null,
+        actions: [
+            NavigationActions.navigate({
+                routeName: "Main"
+            })
+        ]
+    });
 };
 
 export const navToLoginPage = () => {
-  return NavigationActions.back();
-  /*  return {
+    return NavigationActions.back();
+    /*  return {
           type: actionTypes.NAV_TO_LOGIN_PAGE
       }
       */
 };
 
 export const navToRegisterPage = () => {
-  return NavigationActions.navigate({
-    routeName: "Register"
-  });
-  /*return {
+    return NavigationActions.navigate({
+        routeName: "Register"
+    });
+    /*return {
         type: actionTypes.NAV_TO_REGISTER_PAGE
     }*/
 };
 
 export const navToRemindPassPage = () => {
-  return {
-    type: actionTypes.NAV_TO_REMIND_PASS_PAGE
-  };
+    return {
+        type: actionTypes.NAV_TO_REMIND_PASS_PAGE
+    };
 };
 
 export const navToFlowPage = () => {
-  return {
-    type: actionTypes.NAV_TO_FLOW_PAGE
-  };
+    return {
+        type: actionTypes.NAV_TO_FLOW_PAGE
+    };
 };
 
 /*export const navToProfilePage = () => {
@@ -54,15 +54,15 @@ export const navToFlowPage = () => {
 };*/
 
 export const navToDreamPage = dream => {
-  return NavigationActions.navigate({
-    routeName: "Dream",
-    params: { dream }
-  });
+    return NavigationActions.navigate({
+        routeName: "Dream",
+        params: { dream }
+    });
 };
 
-export const navToCommentsPage = comments => {
-  return NavigationActions.navigate({
-    routeName: "Comments",
-    params: { comments }
-  });
+export const navToCommentsPage = (comments, focus) => {
+    return NavigationActions.navigate({
+        routeName: "Comments",
+        params: { comments, focus }
+    });
 };
