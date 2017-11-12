@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
-import { ViewContainer, Comment, Header, HeaderLeft, HeaderTitle, Footer } from "components";
+import { StyleSheet, FlatList } from "react-native";
+import { ViewContainer, Comment, Header, HeaderLeft, HeaderTitle, AddCommentInput } from "components";
 import { translate } from "utils";
 import { colors } from "styles";
+
 const styles = StyleSheet.create({});
 
 export default class CommentsPage extends Component {
@@ -23,10 +24,14 @@ export default class CommentsPage extends Component {
                     keyExtractor={(item, index) => item.id}
                     renderItem={({ item }) => <Comment comment={item} onAuthorPress={() => null} />}
                 />
-
-                <Footer>
-                    <HeaderTitle text="Добавить комментарий" />
-                </Footer>
+                <AddCommentInput
+                    avatar={"https://randomuser.me/api/portraits/women/10.jpg"}
+                    placeholder={"Добавьте комментарий..."}
+                    onSend={() => {
+                        return null;
+                    }}
+                    dreamId={"1"}
+                />
             </ViewContainer>
         );
     }

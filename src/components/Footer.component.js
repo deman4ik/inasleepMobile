@@ -7,13 +7,14 @@ import { normalize } from "utils";
 const window = Dimensions.get("window");
 const styles = StyleSheet.create({
     container: {
-        height: 40,
+        height: 55,
         width: window.width,
-        position: "absolute",
-        backgroundColor: colors.greyLight,
-        alignItems: "center",
-        justifyContent: "flex-end",
-        bottom: 0
+        backgroundColor: colors.white,
+        flexGrow: 1,
+        flexShrink: 0,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center"
     }
 });
 

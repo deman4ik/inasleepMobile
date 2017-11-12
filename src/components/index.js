@@ -1,3 +1,4 @@
+export * from "./AddCommentInput.component";
 export * from "./BigButton.component";
 export * from "./Brand.component";
 export * from "./CardTextButton.component";
