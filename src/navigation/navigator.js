@@ -158,8 +158,11 @@ const MainNavigator = TabNavigator(
 
         tabBarOptions: {
             showLabel: false,
-            activeTintColor: colors.primaryDark,
-            inactiveTintColor: colors.grey
+            activeTintColor: colors.white,
+            inactiveTintColor: colors.grey,
+            style: {
+                backgroundColor: colors.primaryDark
+            }
         }
     }
 );
