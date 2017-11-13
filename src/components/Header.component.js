@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
     leftContainer: {
         position: "absolute",
         bottom: 2,
-        left: 10
+        left: 15
     },
     rightContainer: {
         position: "absolute",
         bottom: 2,
-        right: 10
+        right: 15
     }
 });
 
