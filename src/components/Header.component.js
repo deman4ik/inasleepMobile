@@ -39,7 +39,7 @@ export const HeaderLeft = props => {
     const { onPress, icon, style, iconColor } = props;
     return (
         <TouchableOpacity style={[styles.leftContainer, style]} onPress={onPress}>
-            <Ionicons name={icon} size={normalize(30)} color={iconColor} underlayColor="transparent" />
+            <Icon set={"Ionicons"} name={icon} size={normalize(30)} color={iconColor} underlayColor="transparent" />
         </TouchableOpacity>
     );
 };
