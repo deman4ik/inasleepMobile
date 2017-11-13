@@ -30,7 +30,7 @@ export default class CommentsPage extends Component {
                     onSend={() => {
                         return null;
                     }}
-                    dreamId={"1"}
+                    dreamId={1}
                     focus={focus}
                 />
             </ViewContainer>

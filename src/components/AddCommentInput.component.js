@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { StyleSheet, Dimensions, TextInput, Image, KeyboardAvoidingView, TouchableOpacity } from "react-native";
 import { Footer, LineDivider } from "components";
 import { Ionicons } from "@expo/vector-icons";
@@ -75,3 +76,15 @@ export class AddCommentInput extends Component {
         );
     }
 }
+
+AddCommentInput.defaultProps = {
+    focus: false
+};
+
+AddCommentInput.propTypes = {
+    avatar: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    dreamId: PropTypes.number.isRequired,
+    focus: PropTypes.bool,
+    onSend: PropTypes.func.isRequired
+};
