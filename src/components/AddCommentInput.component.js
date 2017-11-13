@@ -2,8 +2,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, Dimensions, TextInput, Image, KeyboardAvoidingView, TouchableOpacity } from "react-native";
-import { Footer, LineDivider } from "components";
-import { Ionicons } from "@expo/vector-icons";
+import { Footer, LineDivider, Icon } from "components";
 import { translate, dimensionRelativeToIphone, normalize } from "utils";
 import { colors, textStyles } from "styles";
 const window = Dimensions.get("window");
@@ -69,7 +68,12 @@ export class AddCommentInput extends Component {
                         underlineColorAndroid={"transparent"}
                     />
                     <TouchableOpacity style={styles.iconContainer} onPress={onSend(dreamId, this.state.text)}>
-                        <Ionicons size={normalize(22)} name={"ios-paper-plane-outline"} style={styles.icon} />
+                        <Icon
+                            set={"Ionicons"}
+                            size={normalize(22)}
+                            name={"ios-paper-plane-outline"}
+                            style={styles.icon}
+                        />
                     </TouchableOpacity>
                 </Footer>
             </KeyboardAvoidingView>

@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, StyleSheet, Dimensions, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Icon } from "components";
 import { colors } from "styles";
 import { normalize } from "utils";
 import { HEADER_HEIGHT } from "constants";
@@ -63,7 +63,7 @@ export const HeaderRight = props => {
     const { onPress, icon, style, iconColor } = props;
     return (
         <TouchableOpacity style={[styles.rightContainer, style]} onPress={onPress}>
-            <Ionicons name={icon} size={normalize(30)} color={iconColor} underlayColor="transparent" />
+            <Icon set={"Ionicons"} name={icon} size={normalize(30)} color={iconColor} underlayColor="transparent" />
         </TouchableOpacity>
     );
 };

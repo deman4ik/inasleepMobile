@@ -3,8 +3,6 @@ import { View, Text, Image, Dimensions, StyleSheet, Platform, TouchableOpacity }
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 import { HeaderLeft, HeaderRight, HeaderTitle, Header } from "components";
 import { HEADER_HEIGHT } from "constants";
-import { Ionicons } from "@expo/vector-icons";
-
 import { colors } from "styles";
 import { normalize } from "utils";
 

@@ -9,6 +9,7 @@ export * from "./CommentsBlock.component";
 export * from "./Divider.component";
 export * from "./DreamCard.component";
 export * from "./DreamHeader.component";
+export * from "./Icon.component";
 export * from "./Footer.component";
 export * from "./Header.component";
 export * from "./ReadMore.component";
